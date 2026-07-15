@@ -1,0 +1,60 @@
+{
+  "name": "willitsend",
+  "version": "0.1.0",
+  "description": "Preflight for outbound SMS/iMessage: catch silent carrier filtering, segment blowups, and dropped iMessage features before you send.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "willitsend": "dist/cli.js"
+  },
+  "main": "dist/core/index.js",
+  "types": "dist/core/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp/server.d.ts",
+      "import": "./dist/mcp/server.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "build:site": "node site/build.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.1",
+    "typescript": "^5.6.0",
+    "vitest": "^4.0.0"
+  },
+  "keywords": [
+    "sms",
+    "imessage",
+    "deliverability",
+    "carrier-filtering",
+    "gsm-7",
+    "segments",
+    "10dlc",
+    "mcp",
+    "preflight",
+    "ai-agents"
+  ]
+}
