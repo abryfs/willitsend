@@ -1,0 +1,40 @@
+src/core/index.ts
+  s_672656b348fd1d::t_744063abc0fb2e 1-5
+src/core/rules/imessage.ts
+  s_672656b348fd1d::t_efe88ea044d962 1-118
+src/core/sources.ts
+  s_672656b348fd1d::t_f70b903eda311e 1-11
+src/core/rules/destination.ts
+  s_672656b348fd1d::t_6721701d7b8b31 1-51
+src/core/rules/segments.ts
+  s_672656b348fd1d::t_0d47481834808e 1-72
+src/core/rules/context.ts
+  s_672656b348fd1d::t_96921fb582a34b 1-17
+src/core/preflight.ts
+  s_672656b348fd1d::t_31de671afc9bf9 1-134
+src/core/rules/content.ts
+  s_672656b348fd1d::t_ff23df95ab7246 1-113
+src/core/rules/firstMessage.ts
+  s_672656b348fd1d::t_e9f1cd29e5ba8d 1-10,12-80,82-157,159-178
+  s_672656b348fd1d::t_8c8e0ff9cade96 158
+  s_672656b348fd1d::t_ac612a6a66438e 81
+  s_672656b348fd1d::t_aa80871f7ee4e5 11
+src/core/destination.ts
+  s_672656b348fd1d::t_63081ac41fee02 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "47a7735d1a889b99d740e49ba7b067bc7b17b70a",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
