@@ -1,0 +1,25 @@
+test/parity.test.ts
+  s_672656b348fd1d::t_d922a17016d32e 1-29
+scripts/bench.mjs
+  s_672656b348fd1d::t_b7596378be79e0 1-30
+package.json
+  s_672656b348fd1d::t_d1faa60404cc7b 37-38,61-69
+test/fixtures/twilio-parity.json
+  s_672656b348fd1d::t_e513a58ad304a2 1-632
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "8a3573a9deddc52cd5e9b292e9a1a00926d66ea7",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
