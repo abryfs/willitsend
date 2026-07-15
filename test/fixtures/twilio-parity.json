@@ -1,0 +1,632 @@
+[
+ {
+  "body": "Hello world",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "a[b]",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "€",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "{}[]~|^\\",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "café où ìò à ÑÜ",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "ΔΦΓΛΩΠΨΣΘΞ",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 3
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 3
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 3
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "encoding": "GSM-7",
+  "segments": 3
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": "€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€",
+  "encoding": "GSM-7",
+  "segments": 2
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "encoding": "GSM-7",
+  "segments": 1
+ },
+ {
+  "body": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa€aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa€",
+  "encoding": "GSM-7",
+  "segments": 3
+ },
+ {
+  "body": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa😀aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa😀",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "It’s fine",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "français",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "WINNER 🎉 party bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 5
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": " a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 4
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 2
+ },
+ {
+  "body": "🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!",
+  "encoding": "UCS-2",
+  "segments": 3
+ },
+ {
+  "body": " a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B",
+  "encoding": "UCS-2",
+  "segments": 1
+ },
+ {
+  "body": "~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€😀🇺🇸 B[~é!9 a’.\n中€",
+  "encoding": "UCS-2",
+  "segments": 2
+ }
+]

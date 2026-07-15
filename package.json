@@ -34,7 +34,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "build:site": "node site/build.mjs",
-    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "bench": "npm run build && node scripts/bench.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.29.0",
@@ -57,5 +58,13 @@
     "mcp",
     "preflight",
     "ai-agents"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abryfs/willitsend.git"
+  },
+  "homepage": "https://abryfs.github.io/willitsend/",
+  "bugs": {
+    "url": "https://github.com/abryfs/willitsend/issues"
+  }
 }
