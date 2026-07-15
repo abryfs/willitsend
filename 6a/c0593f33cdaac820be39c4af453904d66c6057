@@ -1,0 +1,36 @@
+.gitignore
+  s_672656b348fd1d::t_91e0866b3b16f8 1-5
+LICENSE
+  s_672656b348fd1d::t_9ac16a62f7afd9 1-21
+test/segments.test.ts
+  s_672656b348fd1d::t_9d8d245bc5c75b 1-6,10,15-34,36,38-44,46-53,55-80,84-94,97-109,111,114-133,135-138,140-149,151-185,194-217,222-230,235-238,240-250,252-263
+  s_672656b348fd1d::t_82e091a91cd390 7-9,14,35,37,45,54,81-83,95-96,110,112,134,139,150,186-193,218-221,231-234,239,251
+  s_672656b348fd1d::t_11001ad37ad62f 11-13
+  s_672656b348fd1d::t_b0458dfd7c597a 113
+package-lock.json
+  s_672656b348fd1d::t_4d4b402becc286 1-2951
+src/core/types.ts
+  s_672656b348fd1d::t_b09b7dd4c7618b 1-193
+tsconfig.build.json
+  s_672656b348fd1d::t_35a305d67b76a1 1-4
+tsconfig.json
+  s_672656b348fd1d::t_5ec46a52946503 1-19
+package.json
+  s_672656b348fd1d::t_ee85157624678c 1-60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "6ac0593f33cdaac820be39c4af453904d66c6057",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
