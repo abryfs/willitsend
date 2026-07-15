@@ -8,7 +8,8 @@
     "node": ">=18"
   },
   "bin": {
-    "willitsend": "dist/cli.js"
+    "willitsend": "dist/cli.js",
+    "willitsend-mcp": "dist/mcp/bin.js"
   },
   "main": "dist/core/index.js",
   "types": "dist/core/index.d.ts",
