@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Will it send?</title>
+<meta name="description" content="Preflight your SMS or iMessage before carriers silently drop it. Live compliance and segment analysis, entirely in your browser.">
+<meta property="og:title" content="Will it send?">
+<meta property="og:description" content="Carriers silently filter messages and the API never tells you. Paste a message, see what a carrier sees.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F7F5;
+    --ink: #1A1D21;
+    --muted: #6B7280;
+    --line: #E4E4E0;
+    --carrier-bg: #12151A;
+    --carrier-panel: #1A1F27;
+    --carrier-ink: #E8EAED;
+    --carrier-muted: #8B939E;
+    --blue: #0A84FF;
+    --green: #34C759;
+    --red: #FF453A;
+    --amber: #FFB000;
+    --context: #8E8E93;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: "Archivo", system-ui, sans-serif;
+    --bubble-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--bubble-font);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+
+  header {
+    max-width: 1200px; margin: 0 auto;
+    padding: 48px 24px 24px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 24px;
+  }
+  h1 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    letter-spacing: -0.02em;
+  }
+  .tagline { color: var(--muted); max-width: 46ch; }
+  .tagline strong { color: var(--ink); font-weight: 600; }
+  header nav { margin-left: auto; font-family: var(--mono); font-size: 0.8rem; }
+  header nav a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+  header nav a:hover { color: var(--ink); }
+
+  .stage {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px 64px;
+    display: grid; grid-template-columns: minmax(340px, 460px) 1fr; gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 880px) { .stage { grid-template-columns: 1fr; } }
+
+  /* ---- phone side ---- */
+  .phone {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 20px;
+    padding: 20px; display: flex; flex-direction: column; gap: 16px;
+  }
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; }
+  .presets .label { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); width: 100%; text-transform: uppercase; letter-spacing: 0.08em; }
+  .chip {
+    font: inherit; font-size: 0.82rem; padding: 6px 12px;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--paper);
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--ink); }
+
+  .conversation { min-height: 128px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: 8px 0; }
+  .bubble {
+    align-self: flex-end; max-width: 85%;
+    padding: 10px 14px; border-radius: 18px; border-bottom-right-radius: 4px;
+    background: var(--green); color: #fff;
+    font-size: 0.95rem; white-space: pre-wrap; overflow-wrap: anywhere;
+    transition: opacity 240ms ease, filter 240ms ease, background 240ms ease;
+  }
+  .bubble.imessage { background: var(--blue); }
+  .bubble.ghost { opacity: 0.35; filter: grayscale(0.8); }
+  .bubble:empty::before { content: "Type a message…"; opacity: 0.7; }
+  .receipts { align-self: flex-end; text-align: right; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+  .receipts .never { color: var(--red); font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) { .bubble { transition: none; } }
+
+  .composer textarea {
+    width: 100%; min-height: 84px; resize: vertical;
+    font: inherit; font-size: 0.95rem;
+    padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--paper);
+  }
+  .composer textarea:focus { border-color: var(--blue); outline: none; }
+
+  .context { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+  .context .full { grid-column: 1 / -1; }
+  .field label { display: block; font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .field input, .field select {
+    width: 100%; font: inherit; font-size: 0.85rem; padding: 7px 10px;
+    border: 1px solid var(--line); border-radius: 8px; background: #fff;
+  }
+  .seg-control { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg-control button {
+    font: inherit; font-size: 0.8rem; padding: 6px 12px; border: 0; background: #fff; cursor: pointer; color: var(--muted);
+  }
+  .seg-control button + button { border-left: 1px solid var(--line); }
+  .seg-control button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+  /* ---- carrier side ---- */
+  .carrier {
+    background: var(--carrier-bg); color: var(--carrier-ink);
+    border-radius: 20px; padding: 24px; font-family: var(--mono);
+    display: flex; flex-direction: column; gap: 20px;
+    min-height: 480px;
+  }
+  .carrier .panel-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--carrier-muted); }
+
+  .verdict {
+    border-radius: 12px; padding: 14px 16px;
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    border: 1px solid transparent;
+  }
+  .verdict .word { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.04em; }
+  .verdict .why { font-size: 0.8rem; color: var(--carrier-muted); flex: 1 1 100%; font-family: var(--bubble-font); }
+  .verdict.pass  { background: rgba(52,199,89,0.12); border-color: rgba(52,199,89,0.4); }
+  .verdict.pass .word { color: var(--green); }
+  .verdict.warn  { background: rgba(255,176,0,0.10); border-color: rgba(255,176,0,0.35); }
+  .verdict.warn .word { color: var(--amber); }
+  .verdict.block { background: rgba(255,69,58,0.10); border-color: rgba(255,69,58,0.4); }
+  .verdict.block .word { color: var(--red); }
+  .verdict.needs_context { background: rgba(142,142,147,0.10); border-color: rgba(142,142,147,0.35); }
+  .verdict.needs_context .word { color: var(--context); }
+
+  .findings { display: flex; flex-direction: column; gap: 10px; }
+  .finding {
+    border-left: 3px solid var(--carrier-muted);
+    background: var(--carrier-panel); border-radius: 0 10px 10px 0;
+    padding: 10px 14px; font-size: 0.8rem;
+  }
+  .finding.block { border-left-color: var(--red); }
+  .finding.warn { border-left-color: var(--amber); }
+  .finding.info { border-left-color: var(--carrier-muted); }
+  .finding .rule { font-size: 0.7rem; color: var(--carrier-muted); display: flex; gap: 8px; flex-wrap: wrap; }
+  .finding .rule .sev { font-weight: 600; }
+  .finding.block .sev { color: var(--red); }
+  .finding.warn .sev { color: var(--amber); }
+  .finding .msg { font-family: var(--bubble-font); margin-top: 4px; }
+  .finding .fix { font-family: var(--bubble-font); margin-top: 4px; color: var(--carrier-muted); }
+  .finding .fix code { font-family: var(--mono); color: var(--carrier-ink); }
+  .finding a.src { color: var(--carrier-muted); font-size: 0.7rem; text-decoration: none; border-bottom: 1px dotted var(--carrier-muted); }
+  .finding a.src:hover { color: var(--carrier-ink); }
+  .finding .cond { color: var(--context); font-size: 0.7rem; }
+  .none { color: var(--carrier-muted); font-size: 0.8rem; }
+
+  .segments .meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; margin-bottom: 10px; }
+  .segments .meta b { font-weight: 600; }
+  .badge { padding: 1px 8px; border-radius: 999px; font-size: 0.7rem; border: 1px solid var(--carrier-muted); color: var(--carrier-ink); }
+  .badge.ucs2 { border-color: var(--amber); color: var(--amber); }
+  .ruler { display: flex; gap: 4px; }
+  .ruler .cell {
+    flex: 1; min-width: 40px; height: 34px; border-radius: 6px;
+    background: var(--carrier-panel); border: 1px solid rgba(139,147,158,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; color: var(--carrier-muted);
+  }
+  .ruler .cell.hot { border-color: var(--amber); color: var(--amber); }
+  .culprits { margin-top: 8px; font-size: 0.72rem; color: var(--amber); }
+  .quota, .notes { font-size: 0.75rem; color: var(--carrier-muted); }
+  .quota b { color: var(--carrier-ink); }
+
+  footer {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px 48px;
+    font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+    display: flex; gap: 18px; flex-wrap: wrap;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Will it send?</h1>
+  <p class="tagline">Carriers silently filter text messages — <strong>the API says “sent”, the phone never buzzes.</strong> Type a message and see what a carrier sees. Nothing leaves this page.</p>
+  <nav><a href="https://github.com/abryfs/willitsend">github</a></nav>
+</header>
+
+<main class="stage">
+  <section class="phone" aria-label="Message composer">
+    <div class="presets" role="group" aria-label="Example messages">
+      <span class="label">Try one</span>
+      <button class="chip" data-preset="compliant">Compliant intro</button>
+      <button class="chip" data-preset="missing-optout">Missing opt-out</button>
+      <button class="chip" data-preset="emoji">Emoji surprise</button>
+      <button class="chip" data-preset="hype">Link &amp; hype</button>
+    </div>
+
+    <div class="conversation" aria-live="off">
+      <div class="bubble" id="bubble"></div>
+      <div class="receipts" id="receipts"></div>
+    </div>
+
+    <div class="composer">
+      <label for="body" class="visually-hidden" style="position:absolute;left:-9999px">Message text</label>
+      <textarea id="body" placeholder="Type the message your agent is about to send…" spellcheck="false"></textarea>
+    </div>
+
+    <div class="context">
+      <div class="field full">
+        <label id="first-label">First message to this contact?</label>
+        <div class="seg-control" role="group" aria-labelledby="first-label">
+          <button data-first="unknown" aria-pressed="true">Unknown</button>
+          <button data-first="yes" aria-pressed="false">Yes</button>
+          <button data-first="no" aria-pressed="false">No</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="brand">Brand name</label>
+        <input id="brand" placeholder="e.g. Acme Dental">
+      </div>
+      <div class="field">
+        <label for="to">To</label>
+        <input id="to" placeholder="e.g. +1 415 555 2671">
+      </div>
+      <div class="field full">
+        <label for="campaign">10DLC campaign type (for daily-cap math)</label>
+        <select id="campaign">
+          <option value="">not set</option>
+          <option value="sole_proprietor">sole proprietor</option>
+          <option value="low_volume">low volume</option>
+          <option value="high_volume_low_trust">high volume · low trust</option>
+          <option value="high_volume_standard">high volume · standard</option>
+          <option value="high_volume_high_trust">high volume · high trust</option>
+          <option value="high_volume_highest_trust">high volume · highest trust</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="carrier" aria-label="Carrier-side analysis" aria-live="polite">
+    <span class="panel-label">carrier-side view</span>
+    <div class="verdict pass" id="verdict">
+      <span class="word" id="verdict-word">—</span>
+      <span class="why" id="verdict-why">Type a message to run preflight.</span>
+    </div>
+
+    <div>
+      <span class="panel-label">findings</span>
+      <div class="findings" id="findings"><p class="none">No findings yet.</p></div>
+    </div>
+
+    <div class="segments">
+      <span class="panel-label">segments</span>
+      <div class="meta" id="seg-meta"></div>
+      <div class="ruler" id="ruler" role="img" aria-label="Segment layout"></div>
+      <div class="culprits" id="culprits"></div>
+    </div>
+
+    <div class="quota" id="quota"></div>
+    <div class="notes" id="notes"></div>
+  </section>
+</main>
+
+<footer>
+  <span>willitsend · MIT</span>
+  <a href="https://github.com/abryfs/willitsend">source</a>
+  <a href="https://www.npmjs.com/package/willitsend">npm</a>
+  <span>every rule cites its source · runs entirely in your browser</span>
+</footer>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -43,7 +43,7 @@ export function unicodeBlowupFindings(ctx: RuleContext): Finding[] {
     {
       rule: "segments.unicode-blowup",
       severity: "warn",
-      message: `Character(s) ${segments.nonGsmChars.join(", ")} force UCS-2 encoding, inflating this message from ${strippedSegments.segments} segment(s) to ${segments.segments}.`,
+      message: `${segments.nonGsmChars.length === 1 ? "Character" : "Characters"} ${segments.nonGsmChars.join(", ")} ${segments.nonGsmChars.length === 1 ? "forces" : "force"} UCS-2 encoding, inflating this message from ${strippedSegments.segments} ${strippedSegments.segments === 1 ? "segment" : "segments"} to ${segments.segments}.`,
       source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
     },
   ];
