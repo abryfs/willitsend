@@ -1,0 +1,31 @@
+site/index.html
+  s_672656b348fd1d::t_fc965798b8484f 1-225,227-229,231-280
+  s_672656b348fd1d::t_6b2da57c7e7781 226,230
+src/core/rules/segments.ts
+  s_672656b348fd1d::t_d4966708ed74e0 46
+.github/workflows/ci.yml
+  s_672656b348fd1d::t_d1f6b011c2587e 1-24
+site/build.mjs
+  s_672656b348fd1d::t_e6628ed9114c22 1-20
+site/main.ts
+  s_672656b348fd1d::t_264f52538cc3e4 1-87,91-94,96-221
+  s_672656b348fd1d::t_4f6203d9cdb0f7 88-90,95
+.github/workflows/pages.yml
+  s_672656b348fd1d::t_fe3a5fcce8b529 1-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "19e7b41ecc9c45928f9e2fb6107506239090ea37",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
