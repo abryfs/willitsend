@@ -1,0 +1,23 @@
+skill/SKILL.md
+  s_672656b348fd1d::t_b2cdcb7e044c4e 1-67
+README.md
+  s_672656b348fd1d::t_2963d83f3db989 149,160
+  s_672656b348fd1d::t_1d334b39549951 3,5,21,23,25,39,75,93,99-112,116,129,131,133,135-137,139-140,143,146,153-155,164
+  s_672656b348fd1d::t_150936e5954e5a 1-2,4,6-20,22,24,26-38,40-74,76-92,94-98,113-115,117-128,130,132,134,138,141-142,144-145,147-148,150-152,156-159,161-163,165-170
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "1aed5e431021ef26c4d68fd2129daa36e0c57e33",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
