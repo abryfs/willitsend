@@ -5,7 +5,7 @@ Preflight for outbound SMS and iMessage. Catches the problems that make carriers
 **[Try it in the browser](https://abryfs.github.io/willitsend/)**: runs client-side, nothing leaves the page.
 
 ```
-npx willitsend "Hey! Your appointment is tomorrow at 2pm." --first-message
+npx -y github:abryfs/willitsend "Hey! Your appointment is tomorrow at 2pm." --first-message
 ```
 
 ```
@@ -56,7 +56,7 @@ sequenceDiagram
 **As an MCP tool** (Claude Code):
 
 ```
-claude mcp add willitsend -- npx -y willitsend-mcp
+claude mcp add willitsend -- npx -y -p github:abryfs/willitsend willitsend-mcp
 ```
 
 or in any MCP client config:
@@ -66,15 +66,17 @@ or in any MCP client config:
   "mcpServers": {
     "willitsend": {
       "command": "npx",
-      "args": ["-y", "willitsend-mcp"]
+      "args": ["-y", "-p", "github:abryfs/willitsend", "willitsend-mcp"]
     }
   }
 }
 ```
 
-No API key required. Set `AGENTPHONE_API_KEY` if you want a live iMessage/SMS capabilities lookup for phone-number destinations; without it the tool runs offline.
+Or skip the config and tell your agent: *"Install the willitsend MCP server from github.com/abryfs/willitsend."*
 
-**As a library:**
+No API key required. Set `AGENTPHONE_API_KEY` if you want a live iMessage/SMS capabilities lookup for phone-number destinations; without it the tool runs offline. Installs come straight from this repo (a `prepare` script builds on install) — there is nothing to sign up for and no registry in the middle.
+
+**As a library** (`npm install github:abryfs/willitsend`):
 
 ```ts
 import { preflight } from "willitsend";
@@ -90,7 +92,7 @@ report.findings; // each with severity, fix, and a citation URL
 report.trace.segments; // { encoding, units, segments, perSegment, ... }
 ```
 
-**As a CLI:** `npx willitsend --help`. Exit codes: `0` pass/warn, `1` block, `2` needs context, `3` usage error. It drops into CI or a shell pipeline as-is.
+**As a CLI:** `npx -y github:abryfs/willitsend --help`. Exit codes: `0` pass/warn, `1` block, `2` needs context, `3` usage error. It drops into CI or a shell pipeline as-is.
 
 ## What it checks
 

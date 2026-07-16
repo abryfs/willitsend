@@ -34,8 +34,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "build:site": "node site/build.mjs",
-    "prepublishOnly": "npm run typecheck && npm test && npm run build",
-    "bench": "npm run build && node scripts/bench.mjs"
+    "bench": "npm run build && node scripts/bench.mjs",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.29.0",
