@@ -23,6 +23,8 @@ const quotaEl = $("#quota");
 const notesEl = $("#notes");
 
 let firstMessage: "unknown" | "yes" | "no" = "unknown";
+// Once the user sets this by hand, preset clicks stop overriding it.
+let firstMessagePinned = false;
 
 const PRESETS: Record<string, { body: string; first: typeof firstMessage; brand: string; to: string }> = {
   compliant: {
@@ -211,6 +213,7 @@ campaignEl.addEventListener("change", scheduleRender);
 for (const btn of document.querySelectorAll<HTMLButtonElement>(".seg-control button")) {
   btn.addEventListener("click", () => {
     firstMessage = btn.dataset.first as typeof firstMessage;
+    firstMessagePinned = true;
     for (const b of document.querySelectorAll<HTMLButtonElement>(".seg-control button")) {
       b.setAttribute("aria-pressed", String(b === btn));
     }
@@ -227,9 +230,11 @@ for (const chip of document.querySelectorAll<HTMLButtonElement>(".chip")) {
     toEl.value = preset.to;
     const adv = document.querySelector<HTMLDetailsElement>("details.advanced");
     if (adv) adv.open = Boolean(preset.brand || preset.to);
-    firstMessage = preset.first;
-    for (const b of document.querySelectorAll<HTMLButtonElement>(".seg-control button")) {
-      b.setAttribute("aria-pressed", String(b.dataset.first === preset.first));
+    if (!firstMessagePinned) {
+      firstMessage = preset.first;
+      for (const b of document.querySelectorAll<HTMLButtonElement>(".seg-control button")) {
+        b.setAttribute("aria-pressed", String(b.dataset.first === preset.first));
+      }
     }
     render();
   });
