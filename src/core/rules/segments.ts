@@ -4,7 +4,7 @@
  * daily-cap illustration built from AgentPhone's published quota table.
  */
 
-import { analyzeSegments } from "../segments.js";
+import { segmentCountExcluding } from "../segments.js";
 import { AGENTPHONE_DAILY_LIMITS } from "../sources.js";
 import type { CampaignType, Finding, QuotaIllustration } from "../types.js";
 import type { RuleContext } from "./context.js";
@@ -31,19 +31,16 @@ export function unicodeBlowupFindings(ctx: RuleContext): Finding[] {
   const { segments } = ctx;
   if (segments.encoding !== "ucs2" || segments.nonGsmChars.length === 0) return [];
 
-  const nonGsm = new Set(segments.nonGsmChars);
-  const stripped = Array.from(ctx.input.body)
-    .filter((ch) => !nonGsm.has(ch))
-    .join("");
-  const strippedSegments = analyzeSegments(stripped);
+  const nonGsm = new Set(segments.nonGsmChars.map((ch) => ch.codePointAt(0)!));
+  const strippedSegmentCount = segmentCountExcluding(ctx.input.body, nonGsm);
 
-  if (strippedSegments.segments >= segments.segments) return [];
+  if (strippedSegmentCount >= segments.segments) return [];
 
   return [
     {
       rule: "segments.unicode-blowup",
       severity: "warn",
-      message: `${segments.nonGsmChars.length === 1 ? "Character" : "Characters"} ${segments.nonGsmChars.join(", ")} ${segments.nonGsmChars.length === 1 ? "forces" : "force"} UCS-2 encoding, inflating this message from ${strippedSegments.segments} ${strippedSegments.segments === 1 ? "segment" : "segments"} to ${segments.segments}.`,
+      message: `${segments.nonGsmChars.length === 1 ? "Character" : "Characters"} ${segments.nonGsmChars.join(", ")} ${segments.nonGsmChars.length === 1 ? "forces" : "force"} UCS-2 encoding, inflating this message from ${strippedSegmentCount} ${strippedSegmentCount === 1 ? "segment" : "segments"} to ${segments.segments}.`,
       source: { kind: "agentphone-docs", url: AGENTPHONE_DAILY_LIMITS },
     },
   ];

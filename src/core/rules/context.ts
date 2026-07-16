@@ -14,4 +14,7 @@ export interface RuleContext {
   destination: { raw: string | undefined; class: DestinationClass };
   recipients?: { raw: string; class: DestinationClass }[];
   channel: ChannelAssumption;
+  /** `input.body.toLowerCase()`, computed once and shared across rules that
+   * need a case-insensitive scan (avoids repeating an O(n) pass per rule). */
+  lowerBody: string;
 }

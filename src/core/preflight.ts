@@ -97,6 +97,7 @@ export function preflight(input: PreflightInput): PreflightReport {
     destination,
     ...(recipients ? { recipients } : {}),
     channel,
+    lowerBody: input.body.toLowerCase(),
   };
 
   const findings: Finding[] = [

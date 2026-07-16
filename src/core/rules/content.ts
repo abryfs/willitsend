@@ -26,13 +26,13 @@ const SHAFT_CATEGORIES: { name: string; keywords: readonly string[] }[] = [
 const WORD_RE = /[a-z0-9']+/gi;
 const URL_RE = /https?:\/\/[^\s]+/g;
 
-function lowerTokens(body: string): string[] {
-  return body.toLowerCase().match(WORD_RE) ?? [];
+function lowerTokens(lowerBody: string): string[] {
+  return lowerBody.match(WORD_RE) ?? [];
 }
 
 /** Conservative SHAFT-adjacent keyword scan (sex/alcohol/firearms/tobacco). */
 export function shaftFindings(ctx: RuleContext): Finding[] {
-  const tokens = new Set(lowerTokens(ctx.input.body));
+  const tokens = new Set(lowerTokens(ctx.lowerBody));
   const findings: Finding[] = [];
 
   for (const category of SHAFT_CATEGORIES) {

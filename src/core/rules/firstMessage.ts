@@ -58,8 +58,7 @@ function containsWord(text: string, word: string): boolean {
  * Linear scan — no backtracking regex — so it stays fast on adversarial
  * input (e.g. "STOP ".repeat(1900)).
  */
-function hasOptOutInstruction(body: string): boolean {
-  const lower = body.toLowerCase();
+function hasOptOutInstruction(lower: string): boolean {
   for (const trigger of TRIGGER_WORDS) {
     let idx = 0;
     while ((idx = lower.indexOf(trigger, idx)) !== -1) {
@@ -110,8 +109,8 @@ function withCondition(condition: Condition | undefined): { condition?: Conditio
   return condition ? { condition } : {};
 }
 
-function optOutFindings(body: string, condition: Condition | undefined): Finding[] {
-  if (hasOptOutInstruction(body)) return [];
+function optOutFindings(lowerBody: string, condition: Condition | undefined): Finding[] {
+  if (hasOptOutInstruction(lowerBody)) return [];
   return [
     {
       rule: "first-message.opt-out",
@@ -158,9 +157,8 @@ function brandFindings(input: PreflightInput, condition: Condition | undefined):
   ];
 }
 
-function optInFindings(input: PreflightInput, condition: Condition | undefined): Finding[] {
-  const lower = input.body.toLowerCase();
-  if (OPT_IN_PHRASES.some((phrase) => lower.includes(phrase))) return [];
+function optInFindings(lowerBody: string, condition: Condition | undefined): Finding[] {
+  if (OPT_IN_PHRASES.some((phrase) => lowerBody.includes(phrase))) return [];
   return [
     {
       rule: "first-message.opt-in",
@@ -199,8 +197,8 @@ export function firstMessageFindings(ctx: RuleContext): Finding[] {
   if (isMediaOnly) return mediaOnlyFindings(condition);
 
   return [
-    ...optOutFindings(ctx.input.body, condition),
+    ...optOutFindings(ctx.lowerBody, condition),
     ...brandFindings(ctx.input, condition),
-    ...optInFindings(ctx.input, condition),
+    ...optInFindings(ctx.lowerBody, condition),
   ];
 }
