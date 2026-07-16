@@ -94,7 +94,7 @@
   @media (prefers-reduced-motion: reduce) { .bubble { transition: none; } }
 
   .composer textarea {
-    width: 100%; min-height: 84px; resize: vertical;
+    width: 100%; min-height: 56px; resize: vertical;
     font: inherit; font-size: 0.95rem;
     padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px;
     background: var(--paper);
@@ -115,6 +115,23 @@
   .seg-control button + button { border-left: 1px solid var(--line); }
   .seg-control button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 
+  details.advanced { border-top: 1px solid var(--line); padding-top: 10px; }
+  details.advanced summary {
+    cursor: pointer; font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+    list-style-position: inside;
+  }
+  details.advanced summary:hover { color: var(--ink); }
+  details.advanced .advanced-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; margin-top: 12px; }
+  details.advanced .advanced-fields .full { grid-column: 1 / -1; }
+
+  details.info-notes summary {
+    cursor: pointer; font-size: 0.75rem; color: var(--carrier-muted);
+    padding: 4px 0; list-style-position: inside;
+  }
+  details.info-notes summary:hover { color: var(--carrier-ink); }
+  details.info-notes .findings { margin-top: 8px; }
+
   /* ---- carrier side ---- */
   .carrier {
     background: var(--carrier-bg); color: var(--carrier-ink);
@@ -129,7 +146,9 @@
     display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
     border: 1px solid transparent;
   }
-  .verdict .word { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.04em; }
+  .verdict .answer { font-size: 1.2rem; font-weight: 600; font-family: var(--bubble-font); }
+  .verdict .word { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; align-self: center; }
+  .verdict .word:empty { display: none; }
   .verdict .why { font-size: 0.8rem; color: var(--carrier-muted); flex: 1 1 100%; font-family: var(--bubble-font); }
   .verdict.pass  { background: rgba(52,199,89,0.12); border-color: rgba(52,199,89,0.4); }
   .verdict.pass .word { color: var(--green); }
@@ -188,7 +207,7 @@
 <body>
 <header>
   <h1>Will it send?</h1>
-  <p class="tagline">Carriers silently filter text messages — <strong>the API says “sent”, the phone never buzzes.</strong> Type a message and see what a carrier sees. Nothing leaves this page.</p>
+  <p class="tagline">Carriers silently drop texts and the API never tells you. <strong>Type a message, see what a carrier sees.</strong></p>
   <nav><a href="https://github.com/abryfs/willitsend">github</a></nav>
 </header>
 
@@ -221,6 +240,9 @@
           <button data-first="no" aria-pressed="false">No</button>
         </div>
       </div>
+      <details class="advanced full">
+        <summary>More context: brand, destination, campaign</summary>
+        <div class="advanced-fields">
       <div class="field">
         <label for="brand">Brand name</label>
         <input id="brand" placeholder="e.g. Acme Dental">
@@ -241,14 +263,17 @@
           <option value="high_volume_highest_trust">high volume · highest trust</option>
         </select>
       </div>
+        </div>
+      </details>
     </div>
   </section>
 
   <section class="carrier" aria-label="Carrier-side analysis" aria-live="polite">
     <span class="panel-label">carrier-side view</span>
     <div class="verdict pass" id="verdict">
-      <span class="word" id="verdict-word">—</span>
-      <span class="why" id="verdict-why">Type a message to run preflight.</span>
+      <span class="answer" id="verdict-answer">Type a message.</span>
+      <span class="word" id="verdict-word"></span>
+      <span class="why" id="verdict-why">The check runs live as you type. Nothing leaves this page.</span>
     </div>
 
     <div>

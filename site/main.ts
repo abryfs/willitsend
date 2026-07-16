@@ -12,6 +12,7 @@ const campaignEl = $<HTMLSelectElement>("#campaign");
 const bubbleEl = $("#bubble");
 const receiptsEl = $("#receipts");
 const verdictEl = $("#verdict");
+const verdictAnswerEl = $("#verdict-answer");
 const verdictWordEl = $("#verdict-word");
 const verdictWhyEl = $("#verdict-why");
 const findingsEl = $("#findings");
@@ -50,13 +51,18 @@ const PRESETS: Record<string, { body: string; first: typeof firstMessage; brand:
   },
 };
 
-const VERDICT_COPY: Record<PreflightReport["verdict"], { word: string; why: string }> = {
-  pass: { word: "PASS", why: "Nothing here that carriers are documented to filter." },
-  warn: { word: "WARN", why: "Deliverable, but it carries known filtering risk." },
-  block: { word: "BLOCK", why: "Carriers may silently drop this. The API would still say “sent”." },
+const VERDICT_COPY: Record<PreflightReport["verdict"], { answer: string; word: string; why: string }> = {
+  pass: { answer: "Yes.", word: "PASS", why: "Nothing here that carriers are documented to filter." },
+  warn: { answer: "Probably.", word: "WARN", why: "It should deliver, but it carries known filtering risk." },
+  block: {
+    answer: "No — it may be silently dropped.",
+    word: "BLOCK",
+    why: "The API would still say “sent”. Apply the fixes below.",
+  },
   needs_context: {
+    answer: "Depends — first message to this contact?",
     word: "NEEDS CONTEXT",
-    why: "The verdict depends on whether this is the first message to this contact — set it on the left.",
+    why: "Answer the question under the composer and the verdict turns definitive.",
   },
 };
 
@@ -102,8 +108,9 @@ function render(): void {
 
   if (!input) {
     verdictEl.className = "verdict needs_context";
-    verdictWordEl.textContent = "—";
-    verdictWhyEl.textContent = "Type a message to run preflight.";
+    verdictAnswerEl.textContent = "Type a message.";
+    verdictWordEl.textContent = "";
+    verdictWhyEl.textContent = "The check runs live as you type. Nothing leaves this page.";
     findingsEl.innerHTML = '<p class="none">No findings yet.</p>';
     segMetaEl.innerHTML = "";
     rulerEl.innerHTML = "";
@@ -120,6 +127,7 @@ function render(): void {
     report = preflight(input);
   } catch (err) {
     verdictEl.className = "verdict needs_context";
+    verdictAnswerEl.textContent = "Can't check that.";
     verdictWordEl.textContent = "INPUT";
     verdictWhyEl.textContent = err instanceof Error ? err.message : String(err);
     return;
@@ -128,6 +136,7 @@ function render(): void {
   // verdict banner
   const copy = VERDICT_COPY[report.verdict];
   verdictEl.className = `verdict ${report.verdict}`;
+  verdictAnswerEl.textContent = copy.answer;
   verdictWordEl.textContent = copy.word;
   verdictWhyEl.textContent = copy.why;
 
@@ -142,10 +151,16 @@ function render(): void {
     receiptsEl.innerHTML = `Delivered · ${imessage ? "iMessage" : "SMS"}`;
   }
 
-  // findings
-  findingsEl.innerHTML = report.findings.length
-    ? report.findings.map(renderFinding).join("")
-    : '<p class="none">Clean. No findings.</p>';
+  // findings: block/warn stay visible, info collapses behind a disclosure
+  const actionable = report.findings.filter((f) => f.severity !== "info");
+  const infos = report.findings.filter((f) => f.severity === "info");
+  let html = actionable.map(renderFinding).join("");
+  if (infos.length > 0) {
+    html += `<details class="info-notes"><summary>${infos.length} informational note${
+      infos.length === 1 ? "" : "s"
+    }</summary><div class="findings">${infos.map(renderFinding).join("")}</div></details>`;
+  }
+  findingsEl.innerHTML = html || '<p class="none">Clean. No findings.</p>';
 
   // segments
   const seg = report.trace.segments;
@@ -210,6 +225,8 @@ for (const chip of document.querySelectorAll<HTMLButtonElement>(".chip")) {
     bodyEl.value = preset.body;
     brandEl.value = preset.brand;
     toEl.value = preset.to;
+    const adv = document.querySelector<HTMLDetailsElement>("details.advanced");
+    if (adv) adv.open = Boolean(preset.brand || preset.to);
     firstMessage = preset.first;
     for (const b of document.querySelectorAll<HTMLButtonElement>(".seg-control button")) {
       b.setAttribute("aria-pressed", String(b.dataset.first === preset.first));
