@@ -1,0 +1,47 @@
+src/core/sources.ts
+  s_672656b348fd1d::t_9939439ab6a3be 9-14
+test/preflight.test.ts
+  s_672656b348fd1d::t_9ab641ca0588bc 87-88,95,371-375,499-505
+  s_672656b348fd1d::t_1a3a42b5f9dc4b 467,475
+  s_672656b348fd1d::t_c23044089de059 506
+site/index.html
+  s_672656b348fd1d::t_7278753496dd0c 11-42
+skill/SKILL.md
+  s_672656b348fd1d::t_1a3a42b5f9dc4b 32
+test/cli.test.ts
+  s_672656b348fd1d::t_9ab641ca0588bc 50-57
+src/core/rules/firstMessage.ts
+  s_672656b348fd1d::t_1a3a42b5f9dc4b 78-105
+README.md
+  s_672656b348fd1d::t_1a3a42b5f9dc4b 105,109
+src/core/rules/imessage.ts
+  s_672656b348fd1d::t_ec3a149d37f22b 7,38-39
+src/core/rules/content.ts
+  s_672656b348fd1d::t_ec3a149d37f22b 11,68-69
+  s_672656b348fd1d::t_1a3a42b5f9dc4b 18-19
+src/cli.ts
+  s_672656b348fd1d::t_9ab641ca0588bc 17-25
+  s_672656b348fd1d::t_0b925ea5fda6ea 49-53,57-67
+site/build.mjs
+  s_672656b348fd1d::t_7278753496dd0c 20
+src/core/preflight.ts
+  s_672656b348fd1d::t_1a3a42b5f9dc4b 43-47
+site/fonts/OFL-NOTICE.txt
+  s_672656b348fd1d::t_f9b5fbadee1007 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "9d8aa9df0981680d0bcd7c3e1e7bac10eae44691",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
