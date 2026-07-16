@@ -1,0 +1,38 @@
+src/core/rules/segments.ts
+  s_672656b348fd1d::t_7b40c81fddd034 35,37,43
+  s_672656b348fd1d::t_ad3a8176193431 7
+  s_672656b348fd1d::t_57c68583c661be 34
+src/core/rules/content.ts
+  s_672656b348fd1d::t_b55186876886cf 29-30,35
+src/core/preflight.ts
+  s_672656b348fd1d::t_2e8a9844b9267e 100
+src/core/segments.ts
+  s_672656b348fd1d::t_1575e7aea47dad 50
+  s_672656b348fd1d::t_ce477089931e51 4-6,12-16,19-30,37-41,43,49,63-64,76-79,85-96,98-108,110,112-128,131,136
+  s_672656b348fd1d::t_b5339e031eeb93 147-149,151,166
+  s_672656b348fd1d::t_ed634abb771046 143-146,150,152-165,167-189
+  s_672656b348fd1d::t_f449631c944932 190
+src/core/rules/firstMessage.ts
+  s_672656b348fd1d::t_6d8f7be3a151ec 61
+  s_672656b348fd1d::t_d9578b289bef1d 160-161
+  s_672656b348fd1d::t_c0ef04afbbcd2d 200,202
+  s_672656b348fd1d::t_6ceeff30d90970 112-113
+src/core/rules/context.ts
+  s_672656b348fd1d::t_579505cd7a5aa2 17-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "c58a5ac9e754bbec2e3002972a0eb12a03e63c80",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
