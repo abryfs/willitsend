@@ -69,7 +69,7 @@ A fair question: AgentPhone's docs are agent-readable, so you could feed them in
 | --- | --- | --- |
 | Feed both AgentPhone doc pages into each generation call | ~7,700 | ~$231/day (~$23/day with 90% prompt caching) |
 | `preflight_message` call result (default) | **~250** (+ ~1,450 once per session for the tool definition) | **~$7.50/day** |
-| `preflight_message` with `response_format: "concise"` | **~7 on pass, ~44 on block** (measured) | **~$0.35/day** at a 90% pass rate |
+| `preflight_message` with `response_format: "concise"` | **~4 on pass, ~44 on block** (measured) | **~$0.35/day** at a 90% pass rate |
 
 Roughly **30× fewer tokens per message** in default mode — several hundred× in concise mode — and the checker's own compute rounds to zero (~4µs locally, no API). If you compress the rules into your system prompt instead — our skill file does, at ~950 tokens — you keep the compose-time benefit but still have no verifier and no segment math. Bulk senders feel this most: the tool exists precisely for AI agents sending texts at volume.
 
@@ -105,7 +105,7 @@ draft body, is_first_message_to_contact (true/false when known), and brand_name.
 Treat verdict "block" as do-not-send: apply the returned fix strings and re-run until
 pass. Treat "needs_context" as a signal to determine whether this is a first message
 (check conversation history), never as permission to send. For high-volume loops pass
-response_format: "concise" (~7 tokens on pass).
+response_format: "concise" (~4 tokens on pass).
 ```
 
 No API key required. Set `AGENTPHONE_API_KEY` if you want a live iMessage/SMS capabilities lookup for phone-number destinations; without it the tool runs offline. Installs come straight from this repo (a `prepare` script builds on install) — there is nothing to sign up for and no registry in the middle.
