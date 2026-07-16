@@ -1,6 +1,6 @@
 # willitsend
 
-Preflight for outbound SMS and iMessage. Catches the problems that make carriers **silently drop** a message, before you spend the send.
+Your AI agent sends texts. Carriers silently drop the non-compliant ones, and the API never tells you. **willitsend is the missing check between the model and the carrier**: a deterministic preflight for outbound SMS/iMessage that catches silent filtering, segment blowups, and dropped iMessage features before you spend the send.
 
 **[Try it in the browser](https://abryfs.github.io/willitsend/)**: runs client-side, nothing leaves the page.
 
@@ -11,9 +11,13 @@ npx -y github:abryfs/willitsend "Hey! Your appointment is tomorrow at 2pm." --fi
 ```
 Verdict: BLOCK
 Segments: 1 (gsm7, 41 septets)
-[BLOCK] first-message.opt-out: First message doesn't include opt-out instructions
+Channel: unknown
+[BLOCK] first-message.opt-out: First message doesn't include opt-out instructions (e.g. "Reply STOP
+to unsubscribe"). Carriers may silently filter first messages that lack one, with no API error.
   Fix: Append "Reply STOP to unsubscribe." to the message body.
-  Source: https://docs.agentphone.ai/documentation/reference/messaging-rate-limits
+  Source: https://docs.agentphone.ai/documentation/reference/messaging-rate-limits#first-message-requirements
+[WARN] first-message.opt-in: No opt-in acknowledgment language found …
+[INFO] first-message.brand: No brand_name was provided …
 ```
 
 ## The problem
