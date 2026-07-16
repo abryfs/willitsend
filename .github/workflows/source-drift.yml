@@ -1,0 +1,35 @@
+name: source-drift
+
+on:
+  schedule:
+    - cron: "17 9 * * 1" # weekly, Monday 09:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: drift
+        run: node scripts/check-sources.mjs 2> drift.txt || echo "drift=true" >> "$GITHUB_OUTPUT"
+      - if: steps.drift.outputs.drift == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EXISTING=$(gh issue list --label source-drift --state open --json number --jq 'length')
+          if [ "$EXISTING" = "0" ]; then
+            gh issue create --title "Cited source changed upstream" \
+              --label source-drift \
+              --body-file drift.txt
+          else
+            echo "Open source-drift issue already exists; not duplicating."
+          fi
+      - if: steps.drift.outputs.drift == 'true'
+        run: cat drift.txt && exit 1
