@@ -22,7 +22,7 @@ to unsubscribe"). Carriers may silently filter first messages that lack one, wit
 
 ## The problem
 
-Messaging APIs report `"sent"` when a message reaches the downstream carrier, not when it reaches a phone. AgentPhone's [rate-limit docs](https://docs.agentphone.ai/documentation/reference/messaging-rate-limits) spell out the consequence: first messages that skip brand identification, opt-in acknowledgment, or opt-out instructions "may be silently filtered by carriers. The API will not return an error."
+Messaging APIs report `"sent"` when a message reaches the downstream carrier, not when it reaches a phone. AgentPhone's [rate-limit docs](https://docs.agentphone.ai/documentation/reference/messaging-rate-limits#first-message-requirements) spell out the consequence: first messages that skip brand identification, opt-in acknowledgment, or opt-out instructions "may be silently filtered by carriers. The API will not return an error."
 
 AI agents now send texts autonomously, and nothing sits between the model and the carrier. An agent that drops the opt-out line gets no error and no delivery. An agent that adds one emoji turns a 160-character message into three billable segments and never notices.
 
