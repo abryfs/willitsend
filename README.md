@@ -55,6 +55,21 @@ sequenceDiagram
     end
 ```
 
+## Why not just prompt the rules into your agent?
+
+A fair question: AgentPhone's docs are agent-readable, so you could feed them into every generation call and ask the model to comply. Two things break, and one gets expensive:
+
+1. **Generation is probabilistic; verification is deterministic.** A model with the rules in context complies *usually*. This checker returns the same verdict every time, and its failure mode is a visible finding rather than a silently filtered message. Compose-time guidance and pre-send verification are complements — this repo ships both (the [agent skill](skill/SKILL.md) is the compose-time half).
+2. **Models can't do segment math.** Septet counting, GSM-7 extension characters, encoding flips from one smart quote, placement-aware packing — token-based models are structurally bad at exactly this arithmetic. No amount of prompting fixes it; a 300-line deterministic function does.
+3. **The token math, measured** (char-count/4 heuristic on the actual pages, July 2026):
+
+| Approach | Tokens per message | 10,000 msgs/day at $3/M input |
+| --- | --- | --- |
+| Feed both AgentPhone doc pages into each generation call | ~7,700 | ~$231/day (~$23/day with 90% prompt caching) |
+| `preflight_message` call result | **~250** (+ ~1,450 once per session for the tool definition) | **~$7.50/day** |
+
+Roughly **30× fewer tokens per message**, and the checker's own compute rounds to zero (~4µs locally, no API). If you compress the rules into your system prompt instead — our skill file does, at ~950 tokens — you keep the compose-time benefit but still have no verifier and no segment math. Bulk senders feel this most: the tool exists precisely for AI agents sending texts at volume.
+
 ## Quickstart
 
 **As an MCP tool** (Claude Code):
@@ -154,21 +169,6 @@ Reproduce every number here from the repo; none of them require an account.
 - **Worked cost example, from published caps:** a sole-proprietor 10DLC campaign gets 1,000 T-Mobile segments/day (≈3,000 total US, per AgentPhone's published estimate). One stray emoji that flips a 2-segment GSM-7 message to 4 UCS-2 segments halves the number of messages that quota buys. Same text, same recipients, half the reach.
 
 You will find no delivery-rate improvement claims here. That claim needs send data we don't have.
-
-## Why not just prompt the rules into your agent?
-
-A fair question: AgentPhone's docs are agent-readable, so you could feed them into every generation call and ask the model to comply. Two things break, and one gets expensive:
-
-1. **Generation is probabilistic; verification is deterministic.** A model with the rules in context complies *usually*. This checker returns the same verdict every time, and its failure mode is a visible finding rather than a silently filtered message. Compose-time guidance and pre-send verification are complements — this repo ships both (the [agent skill](skill/SKILL.md) is the compose-time half).
-2. **Models can't do segment math.** Septet counting, GSM-7 extension characters, encoding flips from one smart quote, placement-aware packing — token-based models are structurally bad at exactly this arithmetic. No amount of prompting fixes it; a 300-line deterministic function does.
-3. **The token math, measured** (char-count/4 heuristic on the actual pages, July 2026):
-
-| Approach | Tokens per message | 10,000 msgs/day at $3/M input |
-| --- | --- | --- |
-| Feed both AgentPhone doc pages into each generation call | ~7,700 | ~$231/day (~$23/day with 90% prompt caching) |
-| `preflight_message` call result | **~250** (+ ~1,450 once per session for the tool definition) | **~$7.50/day** |
-
-Roughly **30× fewer tokens per message**, and the checker's own compute rounds to zero (~4µs locally, no API). If you compress the rules into your system prompt instead — our skill file does, at ~950 tokens — you keep the compose-time benefit but still have no verifier and no segment math. Bulk senders feel this most: the tool exists precisely for AI agents sending texts at volume.
 
 ## What this can't do
 
