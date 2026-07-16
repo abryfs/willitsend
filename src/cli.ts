@@ -12,6 +12,9 @@ import { pathToFileURL } from "node:url";
 import { CAMPAIGN_TYPES, PreflightInputError, preflight } from "./core/index.js";
 import type { CampaignType, Finding, PreflightInput, PreflightReport, Verdict } from "./core/index.js";
 
+/** Keep in sync with package.json "version" — not read at runtime on purpose. */
+const VERSION = "0.1.0";
+
 const USAGE = `Usage: willitsend <message> [options]
 
 Options:
@@ -23,6 +26,7 @@ Options:
   --json               Print the full report as JSON
   --strict             Exit 1 on warnings too, not just blocks
   --help               Show this help text
+  --version            Print the version
   --                   End of options; the next argument is the message
 
 Exit codes: 0 pass/warn, 1 block (or warn under --strict), 2 needs_context, 3 usage error.`;
@@ -33,7 +37,7 @@ interface CliArgs {
   strict: boolean;
 }
 
-type ParseResult = { ok: true; args: CliArgs } | { ok: false; help: boolean };
+type ParseResult = { ok: true; args: CliArgs } | { ok: false; help: boolean; error?: string };
 
 function isCampaignType(value: string): value is CampaignType {
   return (CAMPAIGN_TYPES as readonly string[]).includes(value);
@@ -66,6 +70,7 @@ function parseArgs(argv: string[]): ParseResult {
       continue;
     }
     if (arg === "--help") return { ok: false, help: true };
+    if (arg === "--version") return { ok: false, help: true, error: "__VERSION__" };
     switch (arg) {
       case "--first-message":
         isFirst = true;
@@ -93,13 +98,15 @@ function parseArgs(argv: string[]): ParseResult {
       }
       case "--campaign": {
         const value = argv[++i];
-        if (value === undefined || !isCampaignType(value)) return { ok: false, help: false };
+        if (value === undefined || !isCampaignType(value))
+          return { ok: false, help: false, error: `"${value ?? "(missing)"}" is not a valid campaign tier.` };
         campaign = value;
         break;
       }
       default:
-        if (arg.startsWith("--")) return { ok: false, help: false };
-        if (body !== undefined) return { ok: false, help: false };
+        if (arg.startsWith("--")) return { ok: false, help: false, error: `Unknown option ${arg}.` };
+        if (body !== undefined)
+          return { ok: false, help: false, error: `Unexpected extra argument; quote the message as one string.` };
         body = arg;
     }
   }
@@ -170,6 +177,11 @@ function exitCode(verdict: Verdict, strict: boolean): number {
 export function runCli(argv: string[], out: (line: string) => void): number {
   const parsed = parseArgs(argv);
   if (!parsed.ok) {
+    if (parsed.error === "__VERSION__") {
+      out(`willitsend ${VERSION}`);
+      return 0;
+    }
+    if (parsed.error !== undefined) out(`Error: ${parsed.error}`);
     for (const line of USAGE.split("\n")) out(line);
     return parsed.help ? 0 : 3;
   }

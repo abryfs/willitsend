@@ -48,8 +48,22 @@ describe("exit codes", () => {
     expect(out).toMatch(/usage/i);
   });
 
-  it("unknown flag is a usage error", () => {
-    expect(cli(["hi", "--bogus"]).code).toBe(3);
+  it("unknown flag is a usage error that names the offender", () => {
+    const { code, out } = cli(["hi", "--bogus"]);
+    expect(code).toBe(3);
+    expect(out).toContain("--bogus");
+  });
+
+  it("invalid campaign tier is named in the error", () => {
+    const { out } = cli(["hi", "--campaign", "bogus"]);
+    expect(out).toContain("bogus");
+    expect(out).toMatch(/usage/i);
+  });
+
+  it("--version prints the version and exits 0", () => {
+    const { code, out } = cli(["--version"]);
+    expect(code).toBe(0);
+    expect(out).toMatch(/^willitsend \d+\.\d+\.\d+$/);
   });
 
   it("a standalone -- ends option parsing so dash-leading bodies lint", () => {

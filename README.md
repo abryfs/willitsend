@@ -150,7 +150,7 @@ Every report also carries a **send trace**: destination classification, assumed 
 Reproduce every number here from the repo; none of them require an account.
 
 - **Segment-math parity:** agrees with [Twilio's reference segment calculator](https://github.com/TwilioDevEd/message-segment-calculator) on encoding and segment count across a frozen 126-vector corpus: GSM-7/UCS-2 boundaries, extension characters, emoji, ZWJ sequences, and a deterministic fuzz sweep. The corpus and suite live in [`test/parity.test.ts`](test/parity.test.ts); run `npm test`.
-- **Latency:** median 8µs per message, ~40,000 messages/second on one thread (Node 22, Apple Silicon laptop). Run `npm run bench` on yours. Preflighting every outbound message is cheaper than logging it.
+- **Latency:** median 3.9µs per message, ~114,000 messages/second on one thread (Node 22, Apple Silicon laptop; single-pass code-point tables, zero per-character allocation). Run `npm run bench` on yours. Preflighting every outbound message is cheaper than logging it.
 - **Worked cost example, from published caps:** a sole-proprietor 10DLC campaign gets 1,000 T-Mobile segments/day (≈3,000 total US, per AgentPhone's published estimate). One stray emoji that flips a 2-segment GSM-7 message to 4 UCS-2 segments halves the number of messages that quota buys. Same text, same recipients, half the reach.
 
 You will find no delivery-rate improvement claims here. That claim needs send data we don't have.
@@ -168,7 +168,7 @@ A fair question: AgentPhone's docs are agent-readable, so you could feed them in
 | Feed both AgentPhone doc pages into each generation call | ~7,700 | ~$231/day (~$23/day with 90% prompt caching) |
 | `preflight_message` call result | **~250** (+ ~1,450 once per session for the tool definition) | **~$7.50/day** |
 
-Roughly **30× fewer tokens per message**, and the checker's own compute rounds to zero (8µs locally, no API). If you compress the rules into your system prompt instead — our skill file does, at ~950 tokens — you keep the compose-time benefit but still have no verifier and no segment math. Bulk senders feel this most: the tool exists precisely for AI agents sending texts at volume.
+Roughly **30× fewer tokens per message**, and the checker's own compute rounds to zero (~4µs locally, no API). If you compress the rules into your system prompt instead — our skill file does, at ~950 tokens — you keep the compose-time benefit but still have no verifier and no segment math. Bulk senders feel this most: the tool exists precisely for AI agents sending texts at volume.
 
 ## What this can't do
 
@@ -184,7 +184,7 @@ Carrier spam filters are ML systems with unpublished rules. This tool covers the
 
 - [TwilioDevEd/message-segment-calculator](https://github.com/TwilioDevEd/message-segment-calculator) is the reference for segment math. This library is tested for parity against it rather than competing with it.
 - [sms_policy_checker](https://github.com/ConnorBaldes/sms_policy_checker) covers similar compliance ground for Ruby/Rails with an LLM layer; willitsend is the deterministic, zero-network counterpart.
-- Web checkers (10dlccheck.com, Calilio) cover overlapping rules as human-facing forms. willitsend makes those checks embeddable: a library an agent can call 40,000 times a second, with citations.
+- Web checkers (10dlccheck.com, Calilio) cover overlapping rules as human-facing forms. willitsend makes those checks embeddable: a library an agent can call 100,000 times a second, with citations.
 - As far as we can tell, this is the first MCP tool for pre-send SMS content compliance. Corrections welcome.
 
 ## Privacy
@@ -196,6 +196,15 @@ No telemetry. No network calls, except the optional capabilities lookup you enab
 - The engine's natural home is server-side: a `dry_run` parameter on the send endpoint itself. The library is written to drop in, as a pure function with no state and a dependency-free core.
 - A rendered deliverability report card via the MCP Apps extension.
 - Locale packs beyond English.
+
+## Developing
+
+```
+git clone https://github.com/abryfs/willitsend && cd willitsend
+npm install   # builds via prepare
+npm test      # 191 tests: unit, Twilio parity, held-out acceptance
+npm run bench
+```
 
 ## License
 
