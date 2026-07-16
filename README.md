@@ -172,7 +172,7 @@ You will find no delivery-rate improvement claims here. That claim needs send da
 
 ## What this can't do
 
-Carrier spam filters are ML systems with unpublished rules. This tool covers the deterministic, documented layer, and nothing else:
+Carriers filter with systems whose rules they don't publish. The policy layer is public (conduct codes, content categories, volume caps); the runtime filtering decisions are deliberately opaque, and only part of the outcome is observable (some blocks return explicit filter errors, some messages are accepted and silently never delivered). This tool covers the deterministic, documented layer, and nothing else:
 
 - A `pass` is not a delivery guarantee. It means nothing *documented* will kill the message.
 - The opt-in check verifies language presence, not that consent exists. Consent lives in your records, not in message text.
@@ -194,6 +194,7 @@ No telemetry. No network calls, except the optional capabilities lookup you enab
 ## Future
 
 - The engine's natural home is server-side: a `dry_run` parameter on the send endpoint itself. The library is written to drop in, as a pure function with no state and a dependency-free core.
+- Close the loop: correlate preflight verdicts with delivery-status webhooks, so rule precision is measured against real outcomes instead of assumed. Filtering is partially observable (explicit filter errors on some blocks, silence on others), which is exactly enough signal to grade a deterministic ruleset honestly. Learning the opaque layer itself takes aggregate send data across many senders; that belongs to platforms, not to a stateless client tool.
 - A rendered deliverability report card via the MCP Apps extension.
 - Locale packs beyond English.
 
