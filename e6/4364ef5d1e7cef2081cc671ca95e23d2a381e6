@@ -1,0 +1,25 @@
+README.md
+  s_672656b348fd1d::t_4a4216322b0bd6 3-4
+package.json
+  s_672656b348fd1d::t_b198e0c6e28089 4
+site/build.mjs
+  s_672656b348fd1d::t_b0d7a075c04712 22
+site/llms.txt
+  s_672656b348fd1d::t_677eb372283942 1-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "e64364ef5d1e7cef2081cc671ca95e23d2a381e6",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
