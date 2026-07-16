@@ -8,7 +8,7 @@
  * explicitly false.
  */
 
-import { AGENTPHONE_MESSAGES, AGENTPHONE_RATE_LIMITS } from "../sources.js";
+import { AGENTPHONE_FIRST_MESSAGE } from "../sources.js";
 import type { Condition, Finding, PreflightInput } from "../types.js";
 import type { RuleContext } from "./context.js";
 
@@ -121,7 +121,7 @@ function optOutFindings(body: string, condition: Condition | undefined): Finding
         "First message doesn't include opt-out instructions (e.g. \"Reply STOP to unsubscribe\"). " +
         "Carriers may silently filter first messages that lack one, with no API error.",
       fix: 'Append "Reply STOP to unsubscribe." to the message body.',
-      source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_FIRST_MESSAGE },
       locale: "en",
     },
   ];
@@ -137,7 +137,7 @@ function brandFindings(input: PreflightInput, condition: Condition | undefined):
         message:
           "No brand_name was provided, so this tool can't verify the message identifies your " +
           "brand. Provide brand_name to check for it.",
-        source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
+        source: { kind: "agentphone-docs", url: AGENTPHONE_FIRST_MESSAGE },
       },
     ];
   }
@@ -153,7 +153,7 @@ function brandFindings(input: PreflightInput, condition: Condition | undefined):
       ...withCondition(condition),
       message: `Message body doesn't mention the brand "${input.brand_name}". First messages must identify the sender.`,
       fix: `Include "${input.brand_name}" in the message body.`,
-      source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_FIRST_MESSAGE },
     },
   ];
 }
@@ -169,7 +169,7 @@ function optInFindings(input: PreflightInput, condition: Condition | undefined):
       message:
         "No opt-in acknowledgment language found (e.g. \"thanks for signing up\"). This only " +
         "checks for the presence of opt-in language, never that consent actually exists.",
-      source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_FIRST_MESSAGE },
     },
   ];
 }
@@ -183,7 +183,7 @@ function mediaOnlyFindings(condition: Condition | undefined): Finding[] {
       message:
         "This is a media-only first message. Compliance text (brand, opt-in, opt-out) can't " +
         "ride in an image, and carriers may filter first messages that lack it.",
-      source: { kind: "agentphone-docs", url: AGENTPHONE_MESSAGES },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_FIRST_MESSAGE },
     },
   ];
 }

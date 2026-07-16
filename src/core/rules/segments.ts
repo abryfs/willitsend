@@ -5,7 +5,7 @@
  */
 
 import { analyzeSegments } from "../segments.js";
-import { AGENTPHONE_RATE_LIMITS } from "../sources.js";
+import { AGENTPHONE_DAILY_LIMITS } from "../sources.js";
 import type { CampaignType, Finding, QuotaIllustration } from "../types.js";
 import type { RuleContext } from "./context.js";
 
@@ -44,7 +44,7 @@ export function unicodeBlowupFindings(ctx: RuleContext): Finding[] {
       rule: "segments.unicode-blowup",
       severity: "warn",
       message: `${segments.nonGsmChars.length === 1 ? "Character" : "Characters"} ${segments.nonGsmChars.join(", ")} ${segments.nonGsmChars.length === 1 ? "forces" : "force"} UCS-2 encoding, inflating this message from ${strippedSegments.segments} ${strippedSegments.segments === 1 ? "segment" : "segments"} to ${segments.segments}.`,
-      source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_DAILY_LIMITS },
     },
   ];
 }

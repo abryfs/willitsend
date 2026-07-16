@@ -26,30 +26,37 @@ let firstMessage: "unknown" | "yes" | "no" = "unknown";
 // Once the user sets this by hand, preset clicks stop overriding it.
 let firstMessagePinned = false;
 
-const PRESETS: Record<string, { body: string; first: typeof firstMessage; brand: string; to: string }> = {
+const PRESETS: Record<
+  string,
+  { body: string; first: typeof firstMessage; brand: string; to: string; campaign: string }
+> = {
   compliant: {
     body: "Acme Dental: thanks for signing up for appointment reminders. Your cleaning is tomorrow at 2pm. Reply STOP to unsubscribe.",
     first: "yes",
     brand: "Acme Dental",
     to: "+14155552671",
+    campaign: "",
   },
   "missing-optout": {
     body: "Hi! Your appointment is confirmed for tomorrow at 2pm. See you then!",
     first: "yes",
     brand: "Acme Dental",
     to: "+14155552671",
+    campaign: "",
   },
   emoji: {
     body: "Your table is ready \u{1F389} Come to the front desk when you arrive. We're excited to host your party of six tonight at seven thirty, see you soon!",
     first: "no",
     brand: "",
     to: "+14155552671",
+    campaign: "sole_proprietor",
   },
   hype: {
     body: "WINNER ALERT!!! Claim your FREE bottle of whiskey now → https://bit.ly/3xYz $$$ offers end tonight",
     first: "no",
     brand: "",
     to: "+14155552671",
+    campaign: "",
   },
 };
 
@@ -191,7 +198,7 @@ function render(): void {
   // quota
   const q = report.trace.quota;
   quotaEl.innerHTML = q
-    ? `daily-cap math (${esc(q.campaign_type)}): <b>${q.segments_per_message}</b> segment(s)/message × ` +
+    ? `daily-cap math (${esc(q.campaign_type)}): <b>${q.segments_per_message}</b> ${q.segments_per_message === 1 ? "segment" : "segments"}/message × ` +
       `est. <b>${q.estimated_total_daily_cap.toLocaleString()}</b> segments/day ≈ ` +
       `<b>${q.messages_per_day_estimate.toLocaleString()}</b> messages/day · estimate from published caps`
     : "";
@@ -228,6 +235,7 @@ for (const chip of document.querySelectorAll<HTMLButtonElement>(".chip")) {
     bodyEl.value = preset.body;
     brandEl.value = preset.brand;
     toEl.value = preset.to;
+    campaignEl.value = preset.campaign;
     const adv = document.querySelector<HTMLDetailsElement>("details.advanced");
     if (adv) adv.open = Boolean(preset.brand || preset.to);
     if (!firstMessagePinned) {

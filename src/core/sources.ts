@@ -15,3 +15,12 @@ export const CTIA_MPBP_PDF =
 export const CTIA_GUIDELINES =
   "https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms";
 export const TWILIO_US_SMS = "https://www.twilio.com/en-us/guidelines/us/sms";
+
+// Section-anchored deep links (anchor ids verified against the rendered pages).
+export const AGENTPHONE_FIRST_MESSAGE = `${AGENTPHONE_RATE_LIMITS}#first-message-requirements`;
+export const AGENTPHONE_DELIVERY = `${AGENTPHONE_RATE_LIMITS}#delivery-and-reliability`;
+export const AGENTPHONE_DAILY_LIMITS = `${AGENTPHONE_RATE_LIMITS}#daily-message-limits`;
+export const AGENTPHONE_IMESSAGE_LIMITS = `${AGENTPHONE_RATE_LIMITS}#imessage`;
+export const AGENTPHONE_SEND_EFFECTS = `${AGENTPHONE_MESSAGES}#send-effects`;
+export const AGENTPHONE_IMESSAGE_GUIDE = `${AGENTPHONE_MESSAGES}#imessage`;
+export const AGENTPHONE_CAROUSEL = `${AGENTPHONE_SEND_API}#carousel--multi-image-imessage`;

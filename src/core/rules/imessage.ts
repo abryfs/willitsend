@@ -4,7 +4,7 @@
  * new-contact daily cap advisory.
  */
 
-import { AGENTPHONE_MESSAGES, AGENTPHONE_RATE_LIMITS, AGENTPHONE_SEND_API } from "../sources.js";
+import { AGENTPHONE_CAROUSEL, AGENTPHONE_IMESSAGE_GUIDE, AGENTPHONE_IMESSAGE_LIMITS, AGENTPHONE_SEND_EFFECTS } from "../sources.js";
 import { SEND_STYLES } from "../types.js";
 import type { Condition, Finding } from "../types.js";
 import type { RuleContext } from "./context.js";
@@ -22,7 +22,7 @@ export function invalidSendStyleFindings(ctx: RuleContext): Finding[] {
       rule: "imessage.invalid-send-style",
       severity: "block",
       message: `"${send_style}" isn't a valid send_style. Valid values: ${SEND_STYLES.join(", ")}.`,
-      source: { kind: "agentphone-docs", url: AGENTPHONE_MESSAGES },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_SEND_EFFECTS },
     },
   ];
 }
@@ -36,7 +36,7 @@ export function carouselCountFindings(ctx: RuleContext): Finding[] {
       rule: "imessage.carousel-count",
       severity: "block",
       message: `iMessage carousels support 2-${CAROUSEL_MAX} images; this message has ${media.length}.`,
-      source: { kind: "agentphone-docs", url: AGENTPHONE_SEND_API },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_CAROUSEL },
     },
   ];
 }
@@ -73,7 +73,7 @@ export function featureFallbackFindings(ctx: RuleContext): Finding[] {
         rule: "imessage.feature-fallback",
         severity: "warn",
         message,
-        source: { kind: "agentphone-docs", url: AGENTPHONE_MESSAGES },
+        source: { kind: "agentphone-docs", url: AGENTPHONE_IMESSAGE_GUIDE },
       },
     ];
   }
@@ -84,7 +84,7 @@ export function featureFallbackFindings(ctx: RuleContext): Finding[] {
       severity: "warn",
       condition: "sms_fallback" satisfies Condition,
       message,
-      source: { kind: "agentphone-docs", url: AGENTPHONE_MESSAGES },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_IMESSAGE_GUIDE },
     },
   ];
 }
@@ -112,7 +112,7 @@ export function newContactCapFindings(ctx: RuleContext): Finding[] {
       message:
         `iMessage caps sends to a brand-new contact at ${NEW_CONTACT_DAILY_CAP}/day for accounts ` +
         "without an established messaging history. If this contact is new, delivery may be capped.",
-      source: { kind: "agentphone-docs", url: AGENTPHONE_RATE_LIMITS },
+      source: { kind: "agentphone-docs", url: AGENTPHONE_IMESSAGE_LIMITS },
     },
   ];
 }
