@@ -1,7 +1,7 @@
 {
   "name": "willitsend",
   "version": "0.1.0",
-  "description": "Preflight for outbound SMS/iMessage: catch silent carrier filtering, segment blowups, and dropped iMessage features before you send.",
+  "description": "The missing check between your AI agent and the carrier: deterministic pre-send lint for SMS/iMessage with cited rules, exact segment math, and an MCP tool.",
   "type": "module",
   "license": "MIT",
   "engines": {

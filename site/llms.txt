@@ -1,0 +1,25 @@
+# willitsend
+
+Preflight for outbound SMS/iMessage. Deterministic lint that catches silent
+carrier filtering, segment blowups, and dropped iMessage features before a
+message is sent. No API key. Every rule cites its source.
+
+## Install (MCP)
+
+Claude Code: `claude mcp add willitsend -- npx -y -p github:abryfs/willitsend willitsend-mcp`
+Other MCP clients: {"command": "npx", "args": ["-y", "-p", "github:abryfs/willitsend", "willitsend-mcp"]}
+
+## Use
+
+Before every send_message (or equivalent) call, call preflight_message with the
+draft body, is_first_message_to_contact (true/false when known), and brand_name.
+Verdicts: pass = send; warn = send with named risks; block = do not send, apply
+each finding's fix verbatim and re-run; needs_context = determine whether this
+is a first message (check conversation history) and re-run. Never treat
+needs_context as permission to send.
+
+## Links
+
+- Repo + full docs: https://github.com/abryfs/willitsend
+- Playground: https://abryfs.github.io/willitsend/
+- Library: npm install github:abryfs/willitsend (import { preflight } from "willitsend")

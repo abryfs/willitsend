@@ -1,5 +1,7 @@
 # willitsend
 
+[![ci](https://github.com/abryfs/willitsend/actions/workflows/ci.yml/badge.svg)](https://github.com/abryfs/willitsend/actions/workflows/ci.yml) [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Your AI agent sends texts. Carriers silently drop the non-compliant ones, and the API never tells you. **willitsend is the missing check between the model and the carrier**: a deterministic preflight for outbound SMS/iMessage that catches silent filtering, segment blowups, and dropped iMessage features before you spend the send.
 
 **[Try it in the browser](https://abryfs.github.io/willitsend/)**: runs client-side, nothing leaves the page.

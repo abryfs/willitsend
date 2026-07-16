@@ -19,4 +19,5 @@ await build({
 await cp("site/index.html", "site/dist/index.html");
 await cp("site/fonts", "site/dist/fonts", { recursive: true });
 await cp("site/og.png", "site/dist/og.png");
+await cp("site/llms.txt", "site/dist/llms.txt");
 console.log("site/dist ready");
