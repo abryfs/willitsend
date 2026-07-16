@@ -167,7 +167,7 @@ Every report also carries a **send trace**: destination classification, assumed 
 Reproduce every number here from the repo; none of them require an account.
 
 - **Segment-math parity:** agrees with [Twilio's reference segment calculator](https://github.com/TwilioDevEd/message-segment-calculator) on encoding and segment count across a frozen 126-vector corpus: GSM-7/UCS-2 boundaries, extension characters, emoji, ZWJ sequences, and a deterministic fuzz sweep. The corpus and suite live in [`test/parity.test.ts`](test/parity.test.ts); run `npm test`.
-- **Latency:** median 3.9µs per message, ~114,000 messages/second on one thread (Node 22, Apple Silicon laptop; single-pass code-point tables, zero per-character allocation). Run `npm run bench` on yours. Preflighting every outbound message is cheaper than logging it.
+- **Latency:** median ~4µs per message, ~100,000 messages/second on one thread (Node 22, Apple Silicon laptop; single-pass code-point tables, zero per-character allocation). Run `npm run bench` on yours. Preflighting every outbound message is cheaper than logging it.
 - **Worked cost example, from published caps:** a sole-proprietor 10DLC campaign gets 1,000 T-Mobile segments/day (≈3,000 total US, per AgentPhone's published estimate). One stray emoji that flips a 2-segment GSM-7 message to 4 UCS-2 segments halves the number of messages that quota buys. Same text, same recipients, half the reach.
 
 You will find no delivery-rate improvement claims here. That claim needs send data we don't have.
@@ -186,7 +186,7 @@ Carriers filter with systems whose rules they don't publish. The policy layer is
 
 - [TwilioDevEd/message-segment-calculator](https://github.com/TwilioDevEd/message-segment-calculator) is the reference for segment math. This library is tested for parity against it rather than competing with it.
 - [sms_policy_checker](https://github.com/ConnorBaldes/sms_policy_checker) covers similar compliance ground for Ruby/Rails with an LLM layer; willitsend is the deterministic, zero-network counterpart.
-- Web checkers (10dlccheck.com, Calilio) cover overlapping rules as human-facing forms. willitsend makes those checks embeddable: a library an agent can call 100,000 times a second, with citations.
+- Web checkers (10dlccheck.com, Calilio) cover overlapping rules as human-facing forms. willitsend makes those checks embeddable: a library an agent can call a hundred thousand times a second, with citations.
 - As far as we can tell, this is the first MCP tool for pre-send SMS content compliance. Corrections welcome.
 
 ## Privacy
