@@ -1,0 +1,22 @@
+site/main.ts
+  s_672656b348fd1d::t_a15c0e1111b6e2 15,54-61,63,65,111-113,130,139,154-163
+  s_672656b348fd1d::t_df3165c2c74957 228-229
+site/index.html
+  s_672656b348fd1d::t_a999e3611377ed 97,118-134,149-151,210,243-245,266-267,274-276
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "77af545341f7323190604c841117d17d1b77f2e0",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
