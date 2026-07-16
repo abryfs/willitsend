@@ -43,7 +43,10 @@ const TOOL_DESCRIPTION =
   "(encoding, segment count), and — given a 10DLC campaign_type — a daily-quota illustration. Use " +
   "it to catch carrier-filtering risks (missing opt-out language, missing brand identification, " +
   "missing opt-in wording on first messages), invalid iMessage send_style values, oversized media " +
-  "carousels, and GSM-7/UCS-2 segment blowups from stray unicode before spending a real send.";
+  "carousels, and GSM-7/UCS-2 segment blowups from stray unicode before spending a real send. " +
+  "Every finding's fix field is directly actionable: apply it to the draft verbatim (e.g. append " +
+  "the exact quoted sentence), then call preflight_message again — loop until the verdict is pass. " +
+  "Never treat needs_context as permission to send; supply the missing context and re-check.";
 
 const inputSchema = {
   body: z
