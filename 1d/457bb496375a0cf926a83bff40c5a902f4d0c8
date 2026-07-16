@@ -1,0 +1,27 @@
+src/mcp/server.ts
+  s_672656b348fd1d::t_90d11c52e7d3fc 115-122,198-210,316,318
+test/mcp.test.ts
+  s_672656b348fd1d::t_90d11c52e7d3fc 172-190
+README.md
+  s_672656b348fd1d::t_7bb74901aac9f1 71-72,74,107-108
+site/llms.txt
+  s_672656b348fd1d::t_09bfe22445510a 19-20
+skill/SKILL.md
+  s_672656b348fd1d::t_a38ad717ee9bb7 65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "1d457bb496375a0cf926a83bff40c5a902f4d0c8",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
