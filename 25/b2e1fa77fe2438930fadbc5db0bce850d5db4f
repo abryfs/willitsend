@@ -1,0 +1,23 @@
+README.md
+  s_672656b348fd1d::t_8129a7790e60a3 75-86
+src/cli.ts
+  s_672656b348fd1d::t_17dc1b96a8d630 10,200-214
+test/cli.test.ts
+  s_672656b348fd1d::t_bc420a93e9eb23 2-6,102-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "25b2e1fa77fe2438930fadbc5db0bce850d5db4f",
+  "prompts": {},
+  "sessions": {
+    "s_672656b348fd1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9741f3c3-f8c7-4960-8b23-c778e1fe645e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "abryfs <69842068+abryfs@users.noreply.github.com>"
+    }
+  }
+}
