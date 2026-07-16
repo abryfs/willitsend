@@ -72,7 +72,18 @@ or in any MCP client config:
 }
 ```
 
-Or skip the config and tell your agent: *"Install the willitsend MCP server from github.com/abryfs/willitsend."*
+**For AI agents** — paste this block into your agent (or point it at this README):
+
+```text
+Install the willitsend MCP server (pre-send SMS/iMessage lint, no API key needed):
+- Claude Code: run `claude mcp add willitsend -- npx -y -p github:abryfs/willitsend willitsend-mcp`
+- Any other MCP client: add {"command": "npx", "args": ["-y", "-p", "github:abryfs/willitsend", "willitsend-mcp"]} to its MCP server config.
+Then, before every send_message (or equivalent) call, call preflight_message with the
+draft body, is_first_message_to_contact (true/false when known), and brand_name.
+Treat verdict "block" as do-not-send: apply the returned fix strings and re-run until
+pass. Treat "needs_context" as a signal to determine whether this is a first message
+(check conversation history), never as permission to send.
+```
 
 No API key required. Set `AGENTPHONE_API_KEY` if you want a live iMessage/SMS capabilities lookup for phone-number destinations; without it the tool runs offline. Installs come straight from this repo (a `prepare` script builds on install) — there is nothing to sign up for and no registry in the middle.
 

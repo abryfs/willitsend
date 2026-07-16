@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { runCli } from "../src/cli.js";
+import { mkdtempSync, realpathSync, symlinkSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { pathToFileURL } from "node:url";
+import { isCliEntry, runCli } from "../src/cli.js";
 
 // CLI contract (G7): exit 0 = pass/warn, 1 = block, 2 = needs_context,
 // 3 = usage error. --strict promotes warn to exit 1. Output is a
@@ -93,5 +97,20 @@ describe("output", () => {
   it("never echoes the message body to output unless asked (privacy, G13)", () => {
     const { out } = cli(["SECRETBODYTOKEN see you at 2pm", "--not-first"]);
     expect(out).not.toContain("SECRETBODYTOKEN");
+  });
+});
+
+describe("entry-point detection (npm bin shims are symlinks)", () => {
+  it("recognizes invocation through a symlinked bin path", () => {
+    const dir = mkdtempSync(join(tmpdir(), "wis-"));
+    const real = join(dir, "cli.js");
+    writeFileSync(real, "// stub");
+    const link = join(dir, "bin-shim");
+    symlinkSync(real, link);
+    const moduleUrl = pathToFileURL(realpathSync(real)).href;
+    expect(isCliEntry(link, moduleUrl)).toBe(true);
+    expect(isCliEntry(real, moduleUrl)).toBe(true);
+    expect(isCliEntry(join(dir, "missing"), moduleUrl)).toBe(false);
+    expect(isCliEntry(undefined, moduleUrl)).toBe(false);
   });
 });

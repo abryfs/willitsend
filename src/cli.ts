@@ -7,6 +7,7 @@
  * thin bin entry that wires it to argv/console/process.exit.
  */
 
+import { realpathSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { CAMPAIGN_TYPES, PreflightInputError, preflight } from "./core/index.js";
 import type { CampaignType, Finding, PreflightInput, PreflightReport, Verdict } from "./core/index.js";
@@ -196,8 +197,21 @@ export function runCli(argv: string[], out: (line: string) => void): number {
   return exitCode(report.verdict, strict);
 }
 
-const isMainModule = process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
-if (isMainModule) {
+/**
+ * True when this module is the executed entry point. argv[1] is realpathed
+ * because npm bin shims are symlinks, while import.meta.url resolves to the
+ * real file — comparing them raw makes every `npx willitsend` a silent no-op.
+ */
+export function isCliEntry(argvPath: string | undefined, moduleUrl: string): boolean {
+  if (argvPath === undefined) return false;
+  try {
+    return moduleUrl === pathToFileURL(realpathSync(argvPath)).href;
+  } catch {
+    return false;
+  }
+}
+
+if (isCliEntry(process.argv[1], import.meta.url)) {
   const code = runCli(process.argv.slice(2), console.log);
   process.exit(code);
 }
