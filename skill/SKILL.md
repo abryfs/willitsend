@@ -29,7 +29,7 @@ Later messages in the same conversation don't need to repeat 2 and 3.
 
 **iMessage features degrade silently.** `send_style` effects, threaded replies, and image carousels drop without error when the recipient falls back to SMS. Check capabilities first or accept that the plain text is all that's guaranteed to arrive.
 
-**Avoid known filtering triggers**: public URL shorteners (bit.ly, tinyurl), ALL-CAPS runs, `$$$`, and sex/alcohol/firearms/tobacco content on unregistered campaigns.
+**Avoid known filtering triggers**: public URL shorteners (bit.ly, tinyurl), ALL-CAPS runs, `$$$`, and sex/alcohol/firearms/tobacco content, which carriers filter regardless of campaign registration.
 
 ## Quick start
 

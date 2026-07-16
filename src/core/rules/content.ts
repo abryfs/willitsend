@@ -8,14 +8,15 @@
  * language all defeat static keyword matching), so we don't pretend to.
  */
 
-import { CTIA_GUIDELINES, TWILIO_US_SMS } from "../sources.js";
+import { CTIA_GUIDELINES, CTIA_MPBP_PDF, TWILIO_US_SMS } from "../sources.js";
 import type { Finding } from "../types.js";
 import type { RuleContext } from "./context.js";
 
 const SHORTENER_HOSTS = new Set(["bit.ly", "tinyurl.com", "goo.gl", "t.co", "ow.ly", "is.gd", "buff.ly"]);
 
 const SHAFT_CATEGORIES: { name: string; keywords: readonly string[] }[] = [
-  { name: "sex", keywords: ["porn", "xxx", "nude", "escort"] },
+  // "xxx" is deliberately absent: it false-positives on placeholder numbers (xxx-xxx-xxxx).
+  { name: "sex", keywords: ["porn", "nude", "escort"] },
   { name: "alcohol", keywords: ["beer", "wine", "whiskey", "vodka", "booze"] },
   { name: "firearms", keywords: ["gun", "firearm", "ammo", "rifle", "pistol"] },
   { name: "tobacco", keywords: ["cigarette", "cigar", "vape", "nicotine", "tobacco"] },
@@ -64,8 +65,8 @@ export function urlShortenerFindings(ctx: RuleContext): Finding[] {
     findings.push({
       rule: "content.url-shortener",
       severity: "warn",
-      message: `Link uses a public URL shortener (${host}); carriers increasingly filter or flag shortened links in SMS/MMS.`,
-      source: { kind: "twilio", url: TWILIO_US_SMS },
+      message: `Link uses a shared public URL shortener (${host}). CTIA best practices call for shorteners dedicated to the sender; shared ones are a known filtering trigger.`,
+      source: { kind: "ctia", url: CTIA_MPBP_PDF },
     });
   }
 

@@ -102,11 +102,11 @@ report.trace.segments; // { encoding, units, segments, perSegment, ... }
 | `first-message.media-only`: compliance text can't ride in an image | warn | [AgentPhone docs](https://docs.agentphone.ai/documentation/guides/messages) |
 | `segments.unicode-blowup`: one non-GSM character re-encodes the whole message as UCS-2 | warn | [AgentPhone docs](https://docs.agentphone.ai/documentation/reference/messaging-rate-limits) |
 | `imessage.feature-fallback`: `send_style`, threaded replies, and carousels drop without a trace on SMS fallback | warn | [AgentPhone docs](https://docs.agentphone.ai/documentation/guides/messages) |
-| `imessage.invalid-send-style`, `imessage.carousel-count`: invalid effect names, carousels over 20 items | block | [AgentPhone docs](https://docs.agentphone.ai/documentation/guides/messages) |
+| `imessage.invalid-send-style`, `imessage.carousel-count`: invalid effect names, carousels outside the documented 2-20 range | block | [AgentPhone docs](https://docs.agentphone.ai/api-reference/messages/send-message-v-1-messages-post) |
 | `imessage.new-contact-cap`: iMessage caps new-contact sends at 50/day per line | info | [AgentPhone docs](https://docs.agentphone.ai/documentation/reference/messaging-rate-limits) |
 | `destination.invalid`, `destination.voip`: malformed destinations; known-VoIP lines (line type is never guessed from the number) | block / warn | [AgentPhone docs](https://docs.agentphone.ai/documentation/reference/messaging-rate-limits) |
 | `content.shaft`: sex/alcohol/firearms/tobacco terms carriers filter (hate speech has no keyword rule: word lists can't detect it and we don't pretend) | warn | [CTIA](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms) |
-| `content.url-shortener`: public shorteners (bit.ly, tinyurl, …) are a known filtering trigger | warn | [Twilio guidelines](https://www.twilio.com/en-us/guidelines/us/sms) |
+| `content.url-shortener`: shared public shorteners (bit.ly, tinyurl, …) conflict with CTIA dedicated-shortener guidance | warn | [CTIA MP&BP (PDF)](https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf) |
 | `content.spam-patterns`: ALL-CAPS runs, `$$$`, `!!!` | info | heuristic |
 
 Rules come in two labeled tiers. Rules sourced from AgentPhone's own documentation can block. Industry-sourced rules warn at most, because a keyword heuristic has no business vetoing your send.

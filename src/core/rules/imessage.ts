@@ -4,7 +4,7 @@
  * new-contact daily cap advisory.
  */
 
-import { AGENTPHONE_MESSAGES, AGENTPHONE_RATE_LIMITS } from "../sources.js";
+import { AGENTPHONE_MESSAGES, AGENTPHONE_RATE_LIMITS, AGENTPHONE_SEND_API } from "../sources.js";
 import { SEND_STYLES } from "../types.js";
 import type { Condition, Finding } from "../types.js";
 import type { RuleContext } from "./context.js";
@@ -35,8 +35,8 @@ export function carouselCountFindings(ctx: RuleContext): Finding[] {
     {
       rule: "imessage.carousel-count",
       severity: "block",
-      message: `iMessage carousels support at most ${CAROUSEL_MAX} images; this message has ${media.length}.`,
-      source: { kind: "agentphone-docs", url: AGENTPHONE_MESSAGES },
+      message: `iMessage carousels support 2-${CAROUSEL_MAX} images; this message has ${media.length}.`,
+      source: { kind: "agentphone-docs", url: AGENTPHONE_SEND_API },
     },
   ];
 }

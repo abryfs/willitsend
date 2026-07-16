@@ -84,12 +84,15 @@ describe("first-message.opt-out detection (G4: conservative, instruction-shaped)
     "reply stop to cancel anytime",
     "Reply UNSUBSCRIBE to end these messages",
     "Send QUIT to stop receiving reminders",
+    "STOP anytime by texting back",
+    "You can unsubscribe by replying STOP",
   ];
   const notSatisfied = [
     "Our services never stop improving",
     "Please stop by our store this weekend",
     "The bus stops running at midnight",
     "We will never quit on you",
+    "Don't stop sending us feedback",
   ];
 
   it.each(satisfied)("%j satisfies the opt-out requirement", (tail) => {
@@ -365,6 +368,11 @@ describe("group sends (G15)", () => {
       preflight({ body: "hi", to_number: "+14155552671", recipients: ["+14155552671", "+14155552672"] }),
     ).toThrow(PreflightInputError);
   });
+
+  it("recipients with fewer than 2 entries is a usage error (groups need 2+)", () => {
+    expect(() => preflight({ body: "hi", recipients: [] })).toThrow(PreflightInputError);
+    expect(() => preflight({ body: "hi", recipients: ["+14155552671"] })).toThrow(PreflightInputError);
+  });
 });
 
 describe("voip destination (D9: never guessed)", () => {
@@ -456,7 +464,7 @@ describe("industry-sourced rules are advisory only (can NEVER block)", () => {
     expect(r.verdict).toBe("warn");
   });
 
-  it("public URL shortener warns with Twilio citation", () => {
+  it("public URL shortener warns with CTIA citation", () => {
     const r = preflight({
       body: "Track your order: https://bit.ly/3xYz",
       is_first_message_to_contact: false,
@@ -464,7 +472,7 @@ describe("industry-sourced rules are advisory only (can NEVER block)", () => {
     const f = byRule(r.findings, "content.url-shortener");
     expect(f).toHaveLength(1);
     expect(f[0]!.severity).toBe("warn");
-    expect(f[0]!.source.kind).toBe("twilio");
+    expect(f[0]!.source.kind).toBe("ctia");
   });
 
   it("full-domain links do not trigger the shortener rule", () => {
@@ -486,6 +494,14 @@ describe("industry-sourced rules are advisory only (can NEVER block)", () => {
       expect(finding.severity).toBe("info");
       expect(finding.source.kind).toBe("heuristic");
     }
+  });
+
+  it("placeholder phone digits (xxx-xxx-xxxx) do not trip the content rules", () => {
+    const r = preflight({
+      body: "Reach us at xxx-xxx-xxxx with questions.",
+      is_first_message_to_contact: false,
+    });
+    expect(byRule(r.findings, "content.shaft")).toEqual([]);
   });
 
   it("a single caps acronym is not spam", () => {

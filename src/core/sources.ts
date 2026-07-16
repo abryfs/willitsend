@@ -6,6 +6,12 @@
 export const AGENTPHONE_RATE_LIMITS =
   "https://docs.agentphone.ai/documentation/reference/messaging-rate-limits";
 export const AGENTPHONE_MESSAGES = "https://docs.agentphone.ai/documentation/guides/messages";
+export const AGENTPHONE_SEND_API =
+  "https://docs.agentphone.ai/api-reference/messages/send-message-v-1-messages-post";
+/** CTIA Messaging Principles and Best Practices (May 2023) — the PDF itself,
+ * since that is where the cited guidance actually lives. */
+export const CTIA_MPBP_PDF =
+  "https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf";
 export const CTIA_GUIDELINES =
   "https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms";
 export const TWILIO_US_SMS = "https://www.twilio.com/en-us/guidelines/us/sms";

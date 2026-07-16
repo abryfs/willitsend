@@ -40,6 +40,11 @@ function validate(input: PreflightInput): void {
   if (input.to_number !== undefined && input.recipients !== undefined) {
     throw new PreflightInputError("Provide either to_number or recipients, not both.");
   }
+  if (input.recipients !== undefined && input.recipients.length < 2) {
+    throw new PreflightInputError(
+      "recipients needs 2+ entries (it creates an iMessage group); use to_number for a single destination.",
+    );
+  }
 }
 
 function resolveChannel(

@@ -14,14 +14,15 @@ import type { CampaignType, Finding, PreflightInput, PreflightReport, Verdict } 
 const USAGE = `Usage: willitsend <message> [options]
 
 Options:
-  --first-message       Mark this as the first message to this contact
-  --not-first           Mark this as NOT the first message to this contact
-  --brand <name>         Brand name that should appear in the message
-  --to <destination>     Destination: E.164 phone, email, short code, or grp_ id
-  --campaign <type>      10DLC campaign tier (${CAMPAIGN_TYPES.join(", ")})
-  --json                 Print the full report as JSON
-  --strict               Exit 1 on warnings too, not just blocks
-  --help                 Show this help text
+  --first-message      Mark this as the first message to this contact
+  --not-first          Mark this as NOT the first message to this contact
+  --brand <name>       Brand name that should appear in the message
+  --to <destination>   Destination: E.164 phone, email, short code, or grp_ id
+  --campaign <type>    10DLC campaign tier (${CAMPAIGN_TYPES.join(", ")})
+  --json               Print the full report as JSON
+  --strict             Exit 1 on warnings too, not just blocks
+  --help               Show this help text
+  --                   End of options; the next argument is the message
 
 Exit codes: 0 pass/warn, 1 block (or warn under --strict), 2 needs_context, 3 usage error.`;
 
@@ -38,8 +39,6 @@ function isCampaignType(value: string): value is CampaignType {
 }
 
 function parseArgs(argv: string[]): ParseResult {
-  if (argv.includes("--help")) return { ok: false, help: true };
-
   let body: string | undefined;
   let isFirst: boolean | undefined;
   let brand: string | undefined;
@@ -47,9 +46,25 @@ function parseArgs(argv: string[]): ParseResult {
   let campaign: CampaignType | undefined;
   let json = false;
   let strict = false;
+  // POSIX end-of-options marker: everything after a standalone "--" is
+  // positional, so bodies that start with "--" stay lintable.
+  let optionsEnded = false;
+
+  if (!argv.includes("--") && argv.includes("--help")) return { ok: false, help: true };
 
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
+    if (arg === undefined) continue;
+    if (optionsEnded) {
+      if (body !== undefined) return { ok: false, help: false };
+      body = arg;
+      continue;
+    }
+    if (arg === "--") {
+      optionsEnded = true;
+      continue;
+    }
+    if (arg === "--help") return { ok: false, help: true };
     switch (arg) {
       case "--first-message":
         isFirst = true;
@@ -82,7 +97,6 @@ function parseArgs(argv: string[]): ParseResult {
         break;
       }
       default:
-        if (arg === undefined) break;
         if (arg.startsWith("--")) return { ok: false, help: false };
         if (body !== undefined) return { ok: false, help: false };
         body = arg;

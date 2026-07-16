@@ -47,6 +47,14 @@ describe("exit codes", () => {
   it("unknown flag is a usage error", () => {
     expect(cli(["hi", "--bogus"]).code).toBe(3);
   });
+
+  it("a standalone -- ends option parsing so dash-leading bodies lint", () => {
+    const { code, out } = cli(["--not-first", "--", "--50% off everything today"]);
+    expect(code).toBe(0);
+    expect(out).toMatch(/verdict/i);
+    // flags after -- are body text, not options
+    expect(cli(["--", "--help"]).code).not.toBe(0);
+  });
 });
 
 describe("output", () => {

@@ -75,6 +75,34 @@ function hasOptOutInstruction(body: string): boolean {
       idx = wordEnd;
     }
   }
+
+  // Reverse shape: "STOP anytime by texting back" — keyword, then "by", then
+  // a trigger word, all within the window.
+  for (const keyword of OPT_OUT_WORDS) {
+    let idx = 0;
+    while ((idx = lower.indexOf(keyword, idx)) !== -1) {
+      const before = idx === 0 ? undefined : lower[idx - 1];
+      const wordEnd = idx + keyword.length;
+      const after = wordEnd === lower.length ? undefined : lower[wordEnd];
+      if (!isWordChar(before) && !isWordChar(after)) {
+        const window = lower.slice(wordEnd, Math.min(lower.length, wordEnd + WINDOW));
+        const byIdx = window.indexOf(" by ");
+        if (byIdx !== -1) {
+          const afterBy = window.slice(byIdx + 4);
+          for (const trigger of TRIGGER_WORDS) {
+            if (afterBy.startsWith(trigger) || containsWord(afterBy, trigger) || afterBy.startsWith(`${trigger}ing`)) {
+              return true;
+            }
+          }
+          // "texting"/"replying"/"sending" gerunds
+          for (const trigger of TRIGGER_WORDS) {
+            if (containsWord(afterBy, `${trigger}ing`)) return true;
+          }
+        }
+      }
+      idx = wordEnd;
+    }
+  }
   return false;
 }
 
