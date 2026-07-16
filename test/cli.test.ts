@@ -66,6 +66,13 @@ describe("exit codes", () => {
     expect(out).toMatch(/^willitsend \d+\.\d+\.\d+$/);
   });
 
+  it("value flags never swallow the -- terminator", () => {
+    const brand = cli(["--brand", "--", "hello world"]);
+    expect(brand.code).toBe(3);
+    expect(brand.out).toContain("--brand needs a value");
+    expect(cli(["--campaign", "--", "hello"]).code).toBe(3);
+  });
+
   it("a standalone -- ends option parsing so dash-leading bodies lint", () => {
     const { code, out } = cli(["--not-first", "--", "--50% off everything today"]);
     expect(code).toBe(0);

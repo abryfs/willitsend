@@ -86,19 +86,21 @@ function parseArgs(argv: string[]): ParseResult {
         break;
       case "--brand": {
         const value = argv[++i];
-        if (value === undefined) return { ok: false, help: false };
+        if (value === undefined || value === "--")
+          return { ok: false, help: false, error: `--brand needs a value.` };
         brand = value;
         break;
       }
       case "--to": {
         const value = argv[++i];
-        if (value === undefined) return { ok: false, help: false };
+        if (value === undefined || value === "--")
+          return { ok: false, help: false, error: `--to needs a value.` };
         to = value;
         break;
       }
       case "--campaign": {
         const value = argv[++i];
-        if (value === undefined || !isCampaignType(value))
+        if (value === undefined || value === "--" || !isCampaignType(value))
           return { ok: false, help: false, error: `"${value ?? "(missing)"}" is not a valid campaign tier.` };
         campaign = value;
         break;
