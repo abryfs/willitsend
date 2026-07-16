@@ -452,7 +452,7 @@ describe("quota illustration (G2: AgentPhone's published table only)", () => {
 });
 
 describe("industry-sourced rules are advisory only (can NEVER block)", () => {
-  it("SHAFT-adjacent content warns with CTIA citation", () => {
+  it("SHAFT-adjacent content warns with a Twilio guidelines citation", () => {
     const r = preflight({
       body: "Half-price whiskey and cigars this Friday. Reply STOP to unsubscribe.",
       is_first_message_to_contact: false,
@@ -460,7 +460,7 @@ describe("industry-sourced rules are advisory only (can NEVER block)", () => {
     const f = byRule(r.findings, "content.shaft");
     expect(f.length).toBeGreaterThanOrEqual(1);
     expect(f[0]!.severity).toBe("warn");
-    expect(f[0]!.source.kind).toBe("ctia");
+    expect(f[0]!.source.kind).toBe("twilio");
     expect(r.verdict).toBe("warn");
   });
 

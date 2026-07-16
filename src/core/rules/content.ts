@@ -8,7 +8,7 @@
  * language all defeat static keyword matching), so we don't pretend to.
  */
 
-import { CTIA_GUIDELINES, CTIA_MPBP_PDF, TWILIO_US_SMS } from "../sources.js";
+import { CTIA_MPBP_PDF, TWILIO_US_SMS } from "../sources.js";
 import type { Finding } from "../types.js";
 import type { RuleContext } from "./context.js";
 
@@ -42,7 +42,7 @@ export function shaftFindings(ctx: RuleContext): Finding[] {
       rule: "content.shaft",
       severity: "warn",
       message: `Message mentions ${category.name}-related term(s): ${hits.join(", ")}. Some carriers filter or throttle messages referencing ${category.name} content.`,
-      source: { kind: "ctia", url: CTIA_GUIDELINES },
+      source: { kind: "twilio", url: TWILIO_US_SMS },
     });
   }
 
