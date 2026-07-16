@@ -198,8 +198,9 @@ function summarize(report: PreflightReport): string {
 /** Concise text: one actionable line per finding, ~10x fewer tokens. */
 function summarizeConcise(report: PreflightReport): string {
   const seg = report.trace.segments;
+  const ch = report.trace.channel_assumption;
   const lines: string[] = [
-    `${report.verdict.toUpperCase()} | ${seg.segments} seg ${seg.encoding} | ch ${report.trace.channel_assumption}`,
+    `${report.verdict.toUpperCase()} | ${seg.segments} seg ${seg.encoding}${ch === "unknown" ? "" : ` | ch ${ch}`}`,
   ];
   for (const f of report.findings) {
     const cond = f.condition ? ` (if ${f.condition})` : "";
