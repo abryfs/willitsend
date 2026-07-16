@@ -112,6 +112,14 @@ const inputSchema = {
       "Known delivery capabilities for the destination, if you already looked them up. Passing " +
         "this explicitly always takes precedence over — and skips — this server's own optional lookup.",
     ),
+  response_format: z
+    .enum(["detailed", "concise"])
+    .optional()
+    .describe(
+      "Output size. \"detailed\" (default): full messages, fixes, and citation URLs. " +
+        "\"concise\": one line per finding (severity, rule, fix), ~10x fewer tokens — same engine, " +
+        "same verdict, everything needed to act; use it for high-volume loops.",
+    ),
   destination_line_type: z
     .enum(["mobile", "voip", "landline", "unknown"])
     .optional()
@@ -184,6 +192,19 @@ function summarize(report: PreflightReport): string {
 
   for (const note of report.trace.notes) lines.push(`Note: ${note}`);
 
+  return lines.join("\n");
+}
+
+/** Concise text: one actionable line per finding, ~10x fewer tokens. */
+function summarizeConcise(report: PreflightReport): string {
+  const seg = report.trace.segments;
+  const lines: string[] = [
+    `${report.verdict.toUpperCase()} | ${seg.segments} seg ${seg.encoding} | ch ${report.trace.channel_assumption}`,
+  ];
+  for (const f of report.findings) {
+    const cond = f.condition ? ` (if ${f.condition})` : "";
+    lines.push(`${f.severity}: ${f.rule}${cond}${f.fix ? ` | fix: ${f.fix}` : ""}`);
+  }
   return lines.join("\n");
 }
 
@@ -292,8 +313,9 @@ export function createServer(opts: CreateServerOptions = {}): McpServer {
         report.trace.notes = [...report.trace.notes, ...enrichmentNotes];
       }
 
+      const text = args.response_format === "concise" ? summarizeConcise(report) : summarize(report);
       return {
-        content: [{ type: "text" as const, text: summarize(report) }],
+        content: [{ type: "text" as const, text }],
         structuredContent: report as unknown as Record<string, unknown>,
       };
     },

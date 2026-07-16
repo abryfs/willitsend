@@ -16,7 +16,8 @@ draft body, is_first_message_to_contact (true/false when known), and brand_name.
 Verdicts: pass = send; warn = send with named risks; block = do not send, apply
 each finding's fix verbatim and re-run; needs_context = determine whether this
 is a first message (check conversation history) and re-run. Never treat
-needs_context as permission to send.
+needs_context as permission to send. For high-volume loops pass
+response_format: "concise" (~7 tokens on pass).
 
 ## Links
 

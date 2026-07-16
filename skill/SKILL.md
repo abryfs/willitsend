@@ -62,6 +62,6 @@ Read the verdict:
 
 ## Ideas
 
-- Preflight in a loop: compose, check, apply the returned `fix` strings, re-check, send.
+- Preflight in a loop: compose, check, apply the returned `fix` strings, re-check, send. Pass `response_format: "concise"` in bulk loops (~7 tokens per pass verdict).
 - Pipe `--json` CLI output into your own logging to track how often drafts needed fixes.
 - Pass `campaign_type` to see quota burn before batch sends: a 2-segment message on a sole-proprietor campaign spends 0.2% of the T-Mobile daily cap (about 0.067% of the estimated US total) per recipient.

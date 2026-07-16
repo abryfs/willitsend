@@ -169,6 +169,25 @@ describe("capabilities enrichment (optional, graceful)", () => {
   });
 });
 
+describe("response_format", () => {
+  it("concise returns actionable one-liners at a fraction of the tokens", async () => {
+    const client = await connect();
+    const args = { body: "Hey, quick reminder about tomorrow at 2pm.", is_first_message_to_contact: true };
+    const detailed = (await client.callTool({ name: "preflight_message", arguments: args })) as ToolResult;
+    const concise = (await client.callTool({
+      name: "preflight_message",
+      arguments: { ...args, response_format: "concise" },
+    })) as ToolResult;
+    const dText = detailed.content.find((c) => c.type === "text")?.text ?? "";
+    const cText = concise.content.find((c) => c.type === "text")?.text ?? "";
+    expect(cText).toMatch(/^BLOCK/);
+    expect(cText).toContain("first-message.opt-out");
+    expect(cText).toContain("Reply STOP");
+    expect(cText.length).toBeLessThan(dText.length / 2);
+    expect((concise.structuredContent as { verdict?: string }).verdict).toBe("block");
+  });
+});
+
 describe("privacy (G13)", () => {
   it("tool result text never includes the full message body", async () => {
     const client = await connect();
