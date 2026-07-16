@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.abryfs/willitsend",
+  "description": "Deterministic preflight for outbound SMS/iMessage that catches silent carrier filtering, segment blowups, and dropped iMessage features before your agent sends.",
+  "repository": {
+    "url": "https://github.com/abryfs/willitsend",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "willitsend",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "AGENTPHONE_API_KEY",
+          "description": "Optional API key for live carrier/capabilities lookup. The linter runs fully offline without it.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

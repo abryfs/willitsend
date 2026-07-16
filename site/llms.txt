@@ -8,6 +8,7 @@ message is sent. No API key. Every rule cites its source.
 
 Claude Code: `claude mcp add willitsend -- npx -y -p github:abryfs/willitsend willitsend-mcp`
 Other MCP clients: {"command": "npx", "args": ["-y", "-p", "github:abryfs/willitsend", "willitsend-mcp"]}
+MCP Registry (once a release is published): server name io.github.abryfs/willitsend
 
 ## Use
 

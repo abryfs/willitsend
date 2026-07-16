@@ -1,0 +1,24 @@
+# Smithery configuration for willitsend.
+# Local stdio server started via npx. Docs: https://smithery.ai/docs
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      agentphoneApiKey:
+        type: string
+        title: AgentPhone API Key
+        description: >-
+          Optional. Enables a live iMessage/SMS capabilities lookup for
+          phone-number destinations. The linter runs fully offline without it.
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'willitsend'],
+      env: config.agentphoneApiKey
+        ? { AGENTPHONE_API_KEY: config.agentphoneApiKey }
+        : {}
+    })
+  exampleConfig:
+    agentphoneApiKey: ""
