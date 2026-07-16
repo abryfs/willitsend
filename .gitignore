@@ -3,3 +3,4 @@ dist/
 site/dist/
 *.tsbuildinfo
 .DS_Store
+*.tgz
