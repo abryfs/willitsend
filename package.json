@@ -1,6 +1,7 @@
 {
   "name": "willitsend",
   "version": "0.1.0",
+  "mcpName": "io.github.abryfs/willitsend",
   "description": "The missing check between your AI agent and the carrier: deterministic pre-send lint for SMS/iMessage with cited rules, exact segment math, and an MCP tool.",
   "type": "module",
   "license": "MIT",
@@ -8,8 +9,9 @@
     "node": ">=18"
   },
   "bin": {
-    "willitsend": "dist/cli.js",
-    "willitsend-mcp": "dist/mcp/bin.js"
+    "willitsend": "dist/mcp/bin.js",
+    "willitsend-mcp": "dist/mcp/bin.js",
+    "willitsend-cli": "dist/cli.js"
   },
   "main": "dist/core/index.js",
   "types": "dist/core/index.d.ts",
@@ -28,6 +30,9 @@
     "README.md",
     "LICENSE"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
@@ -56,6 +61,10 @@
     "segments",
     "10dlc",
     "mcp",
+    "model-context-protocol",
+    "twilio",
+    "linter",
+    "agent",
     "preflight",
     "ai-agents"
   ],

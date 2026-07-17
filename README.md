@@ -7,7 +7,7 @@ Your AI agent sends texts. Carriers silently drop the non-compliant ones, and th
 **[Try it in the browser](https://abryfs.github.io/willitsend/)**: runs client-side, nothing leaves the page.
 
 ```
-npx -y github:abryfs/willitsend "Hey! Your appointment is tomorrow at 2pm." --first-message
+npx -y -p github:abryfs/willitsend willitsend-cli "Hey! Your appointment is tomorrow at 2pm." --first-message
 ```
 
 ```
@@ -108,7 +108,7 @@ pass. Treat "needs_context" as a signal to determine whether this is a first mes
 response_format: "concise" (~4 tokens on pass).
 ```
 
-No API key required. Set `AGENTPHONE_API_KEY` if you want a live iMessage/SMS capabilities lookup for phone-number destinations; without it the tool runs offline. Installs come straight from this repo (a `prepare` script builds on install) — there is nothing to sign up for and no registry in the middle.
+No API key required. Set `AGENTPHONE_API_KEY` if you want a live iMessage/SMS capabilities lookup for phone-number destinations; without it the tool runs offline. The config above installs straight from this repo (a `prepare` script builds on install) — nothing to sign up for. willitsend also publishes to npm and the [MCP Registry](https://registry.modelcontextprotocol.io) under the server name `io.github.abryfs/willitsend`; once a release is cut, registry-aware clients can add it by name and `npx -y willitsend` starts the server directly. See [`docs/publishing.md`](docs/publishing.md) for the release runbook.
 
 **As a library** (`npm install github:abryfs/willitsend`):
 
@@ -126,7 +126,7 @@ report.findings; // each with severity, fix, and a citation URL
 report.trace.segments; // { encoding, units, segments, perSegment, ... }
 ```
 
-**As a CLI:** `npx -y github:abryfs/willitsend --help`. Exit codes: `0` pass/warn, `1` block, `2` needs context, `3` usage error. It drops into CI or a shell pipeline as-is.
+**As a CLI:** `npx -y -p github:abryfs/willitsend willitsend-cli --help` (or `npx -y -p willitsend willitsend-cli` once installed from npm). Exit codes: `0` pass/warn, `1` block, `2` needs context, `3` usage error. It drops into CI or a shell pipeline as-is.
 
 ## What it checks
 
