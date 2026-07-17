@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.abryfs/willitsend",
-  "description": "Deterministic preflight for outbound SMS/iMessage that catches silent carrier filtering, segment blowups, and dropped iMessage features before your agent sends.",
+  "description": "Deterministic pre-send lint for SMS/iMessage: silent carrier filtering and segment blowups.",
   "repository": {
     "url": "https://github.com/abryfs/willitsend",
     "source": "github"
